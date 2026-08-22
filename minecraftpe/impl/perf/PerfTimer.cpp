@@ -32,13 +32,37 @@ PerfTimer::ResultField& PerfTimer::ResultField::operator=(ResultField&& a2) {
 PerfTimer::ResultField::~ResultField() {
 }
 
-std::vector<PerfTimer::ResultField> PerfTimer::getLog(const std::string&) {
+std::vector<PerfTimer::ResultField> PerfTimer::getLog(const std::string& a2) {
+	if(PerfTimer::enabled) {
+		std::string v31 = a2;
+		auto&& it = PerfTimer::times.find("root");
+		float v7 = it == PerfTimer::times.end() ? 0 : it->second;
+		auto&& it2 = PerfTimer::times.find(v31);
+		float v2 = it2 != PerfTimer::times.end() ? it2->second : -1;
+
+		std::vector<PerfTimer::ResultField> v33;
+		if(v31.size()) {
+			v31 += ".";
+		}
+	} else {
+		return {};
+	}
 	printf("PerfTimer::getLog - not implemented\n"); //TODO PerfTimer::getLog
 	return {};
 }
 void PerfTimer::pop() {
 	if(PerfTimer::enabled) {
-		printf("PerfTimer::pop - not implemented\n"); //TODO PerfTimer::pop
+		double time = getTimeS();
+		PerfTimer::paths.pop_back();
+		PerfTimer::startTimes.pop_back();
+		float v3 = time - PerfTimer::startTimes.back();
+		PerfTimer::times.insert({PerfTimer::path, v3});
+
+		if(PerfTimer::paths.size()) {
+			PerfTimer::path = PerfTimer::paths[PerfTimer::paths.size() - 1];
+		} else {
+			PerfTimer::path = "";
+		}
 	}
 }
 void PerfTimer::popPush(const std::string& a1) {

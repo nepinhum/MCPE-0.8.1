@@ -4,14 +4,14 @@
 #include <network/mco/MojangConnectionStatus.hpp>
 #include <network/mco/MCOEvent.hpp>
 #include <vector>
-
+struct TextBox;
 struct Button;
 struct Screen : public GuiComponent{
 	int32_t width, height;
 	int8_t field_C, field_D, field_E, field_F;
 	struct Minecraft* minecraft;
 	std::vector<Button*> buttons;
-	int32_t field_20, field_24, field_28;
+	std::vector<TextBox*> field_20; //TODO check
 	std::vector<Button*> field_2C;
 	std::vector<struct GuiElement*> elements;
 	int32_t field_44;

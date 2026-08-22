@@ -101,7 +101,6 @@ struct Options{
 	static std::vector<int32_t> DIFFICULTY_LEVELS;
 	static std::vector<int32_t> RENDERDISTANCE_LEVELS;
 
-	//~Options(void); //TODO check is needed by vector destructor
 	void validateVersion(void);
 	void update(void);
 	void toggle(const Options::Option*, int32_t);

@@ -19,9 +19,11 @@ struct LevelChunk
 	int32_t topBlockY;
 	int32_t chunkX, chunkZ;
 	int32_t chunkXworld, chunkZworld;
-	int8_t decorated;
-	bool_t unsaved;
-	int8_t field_24A, field_24B, field_24C, field_24D, field_24E, field_24F;
+	bool decorated;
+	bool unsaved;
+	int8_t field_24A;
+	bool field_24B;
+	int8_t field_24C, field_24D, field_24E, field_24F;
 	int32_t field_250;
 	uint8_t* tiles;
 	int8_t field_258, field_259, field_25A, field_25B;

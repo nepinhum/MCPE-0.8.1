@@ -3,6 +3,11 @@
 
 struct BinaryBlob
 {
-	char* ptr1;
-	int32_t field_4;
+	char* data;
+	int length;
+
+	BinaryBlob(char* d, int sz) {
+		this->data = d;
+		this->length = sz;
+	}
 };

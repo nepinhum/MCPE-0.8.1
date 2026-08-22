@@ -4,10 +4,13 @@
 #include <string>
 
 struct KeyMapping{
-	std::string name; //TODO 4 bytes?
+	std::string name;
 	int32_t keyCode;
 
-	KeyMapping();
+	KeyMapping() {
+		this->keyCode = 0;
+	}
+	~KeyMapping();
 	KeyMapping(const std::string&, int32_t);
 	void operator=(KeyMapping&&);
 };

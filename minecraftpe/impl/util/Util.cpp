@@ -17,12 +17,11 @@ bool_t Util::startsWith(const std::string& a1, const std::string& a2) {
 }
 
 std::string Util::getExtension(const std::string& a2) {
-	//TODO check
-	int32_t dot = a2.find('.');
+	int32_t dot = a2.rfind('.');
 	if(dot == -1) {
 		return "";
 	} else {
-		return a2.substr(dot);
+		return a2.substr(dot+1, a2.size()-dot);
 	}
 }
 
@@ -133,7 +132,6 @@ std::string Util::simpleFormat(const std::string& a2, std::vector<std::string> a
 }
 
 std::string Util::toLower(const std::string& s){
-	//TODO check
 	std::string cp = s;
 	std::transform(cp.begin(), cp.end(), cp.begin(), tolower);
 	return cp;

@@ -10,7 +10,7 @@ struct PerfRenderer{
 	std::vector<float> field_C;
 	std::vector<float> field_18;
 	int field_24;
-	double field_28;
+	double lastRenderedAt;
 
 	PerfRenderer(struct Minecraft*, struct Font*);
 	void debugFpsMeterKeyPress(int);

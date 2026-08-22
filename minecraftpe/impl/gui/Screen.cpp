@@ -11,6 +11,7 @@
 #include <input/Mouse.hpp>
 #include <sound/SoundEngine.hpp>
 #include <input/Keyboard.hpp>
+#include <gui/elements/TextBox.hpp>
 
 static char_t* panorama_images[] = {
 	"gui/background/panorama_0.png",
@@ -26,9 +27,6 @@ Screen::Screen(){
 	this->height = 1;
 	this->field_C = 0;
 	this->minecraft = 0;
-	this->field_20 = 0;
-	this->field_24 = 0;
-	this->field_28 = 0;
 	this->field_44 = 0;
 	this->font = 0;
 	this->lastPressedButton = 0;
@@ -256,9 +254,9 @@ bool_t Screen::closeOnPlayerHurt(){
 }
 void Screen::confirmResult(bool_t, int32_t){}
 void Screen::lostFocus(){
-	//TODO lostFocus
-	//field_20 -> field_24: vector?
-	printf("Screen::lostFocus - not implemented\n");
+	for(TextBox* tb: this->field_20) {
+		tb->loseFocus(this->minecraft);
+	}
 }
 void Screen::toGUICoordinate(int32_t& x, int32_t& y){
 	x = this->width*x / this->minecraft->width;
