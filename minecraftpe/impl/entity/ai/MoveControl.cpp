@@ -25,8 +25,6 @@ void MoveControl::setWantedPosition(float x, float y, float z, float speed) {
 	this->_hasWanted = 1;
 }
 
-MoveControl::~MoveControl() {
-}
 void MoveControl::tick() {
 	Mob* controlledEntity; // r3
 	float v3;			   // s14

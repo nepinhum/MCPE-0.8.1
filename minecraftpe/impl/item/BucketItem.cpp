@@ -37,8 +37,6 @@ bool_t BucketItem::emptyBucket(Level* level, int32_t type, int32_t x, int32_t y,
 	return 1;
 }
 
-BucketItem::~BucketItem() {
-}
 int32_t BucketItem::getMaxStackSize(const ItemInstance* a2) {
 	if(a2->getAuxValue()) return 1;
 	return 16;

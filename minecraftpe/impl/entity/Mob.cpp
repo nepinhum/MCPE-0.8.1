@@ -908,9 +908,6 @@ void Mob::heal(int32_t a2) {
 		this->field_DC = this->field_118 / 2;
 	}
 }
-int32_t Mob::getMaxHealth() {
-	return 10;
-}
 void Mob::actuallyHurt(int32_t a2) {
 	if(!this->hasArmorMaybe) {
 		a2 = this->getDamageAfterArmorAbsorb(a2);
@@ -1191,8 +1188,6 @@ bool_t Mob::canSpawn() {
 	std::vector<AABB>* cubes = this->level->getCubes(this, this->boundingBox, 0);
 	return cubes->size() == 0 && !this->level->containsAnyLiquid(this->boundingBox);
 }
-void Mob::finalizeMobSpawn() {
-}
 float Mob::getAttackAnim(float a2) {
 	float v2 = this->field_134;
 	float v3 = this->field_138 - v2;
@@ -1269,22 +1264,11 @@ Vec3 Mob::getViewVector(float a3) const {
 int32_t Mob::getMaxSpawnClusterSize() {
 	return 4;
 }
-bool_t Mob::isBaby() {
-	return 0;
-}
-ItemInstance* Mob::getCarriedItem() {
-	return 0;
-}
-int32_t Mob::getUseItemDuration() {
-	return 0;
-}
 void Mob::swing() {
 	if(!this->field_B68 || this->field_B6C > 2 || this->field_B6C < 0) {
 		this->field_B6C = -1;
 		this->field_B68 = 1;
 	}
-}
-void Mob::ate() {
 }
 float Mob::getMaxHeadXRot() {
 	return 40;

@@ -68,8 +68,6 @@ Particle* Particle::setPower(float a2) {
 	return this;
 }
 
-Particle::~Particle() {
-}
 void Particle::tick() {
 	int32_t maxAliveTime; // r2
 	int32_t ticksAlive; // r3
@@ -103,15 +101,7 @@ void Particle::tick() {
 		this->motionZ = v9 * 0.7;
 	}
 }
-int32_t Particle::getEntityTypeId() const {
-	return 0;
-}
-void Particle::readAdditionalSaveData(CompoundTag*) {
-}
-void Particle::addAdditonalSaveData(CompoundTag*) {
-}
-void Particle::setEntity(Entity*) {
-}
+
 void Particle::render(Tesselator& a2, float a3, float a4, float a5, float a6, float a7, float a8) {
 	float minX;			   // r7
 	float maxX;			   // r9

@@ -5,6 +5,10 @@
 struct Mutex{
 	pthread_mutex_t mutex;
 
-	Mutex();
-	~Mutex();
+	Mutex() {
+		pthread_mutex_init(&this->mutex, 0);
+	}
+	~Mutex() {
+		pthread_mutex_destroy(&this->mutex);
+	}
 };

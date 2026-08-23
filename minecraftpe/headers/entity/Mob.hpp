@@ -131,7 +131,9 @@ struct Mob : Entity{
 	virtual float getBaseSpeed() = 0;
 	virtual void superTick();
 	virtual void heal(int32_t);
-	virtual int32_t getMaxHealth();
+	virtual int32_t getMaxHealth() {
+		return 10;
+	}
 	virtual void actuallyHurt(int32_t);
 	virtual int32_t getArmorValue();
 	virtual HitResult pick(float, float, bool_t);
@@ -142,17 +144,23 @@ struct Mob : Entity{
 	virtual bool_t isLookingAtAnEntity();
 	virtual void beforeRemove();
 	virtual bool_t canSpawn();
-	virtual void finalizeMobSpawn();
+	virtual void finalizeMobSpawn(){}
 	virtual float getAttackAnim(float);
 	virtual Vec3 getPos(float);
 	virtual Vec3 getLookAngle() const;
 	virtual Vec3 getViewVector(float) const;
 	virtual int32_t getMaxSpawnClusterSize();
-	virtual bool_t isBaby();
-	virtual ItemInstance* getCarriedItem();
-	virtual int32_t getUseItemDuration();
+	virtual bool_t isBaby() {
+		return 0;
+	}
+	virtual ItemInstance* getCarriedItem() {
+		return 0;
+	}
+	virtual int32_t getUseItemDuration() {
+		return 0;
+	}
 	virtual void swing();
-	virtual void ate();
+	virtual void ate(){}
 	virtual float getMaxHeadXRot();
 	virtual Mob* getLastHurtByMob();
 	virtual void setLastHurtByMob(Mob*);

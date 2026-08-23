@@ -11,8 +11,6 @@ OptionsGroup* OptionsPane::createOptionsGroup(std::string a2) {
 	return g;
 }
 
-OptionsPane::~OptionsPane() {
-}
 void OptionsPane::setupPositions() {
 	PackedScrollContainer::setupPositions();
 }

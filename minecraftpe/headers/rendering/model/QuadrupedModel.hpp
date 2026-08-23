@@ -9,7 +9,7 @@ struct QuadrupedModel: Model
 	float field_398, field_39C;
 
 	QuadrupedModel(int32_t, float, int32_t, int32_t);
-	virtual ~QuadrupedModel();
+	virtual ~QuadrupedModel(){}
 	virtual void render(Entity*, float, float, float, float, float, float);
 	virtual void setupAnim(float, float, float, float, float, float);
 };

@@ -467,8 +467,6 @@ void NetherReactorTileEntity::turnLayerToGlowingObsidian(int32_t a2, int32_t a3)
 	}
 }
 
-NetherReactorTileEntity::~NetherReactorTileEntity() {
-}
 bool_t NetherReactorTileEntity::shouldSave() {
 	return 1;
 }

@@ -9,7 +9,8 @@ struct OpenDoorGoal: DoorInteractGoal
 
 	OpenDoorGoal(Mob*, bool_t);
 
-	virtual ~OpenDoorGoal();
+	virtual ~OpenDoorGoal() {
+	}
 	virtual bool_t canContinueToUse();
 	virtual void start();
 	virtual void stop();

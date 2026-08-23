@@ -45,8 +45,6 @@ bool_t Monster::isDarkEnoughToSpawn() {
 	return rb <= (int32_t)(this->random.genrand_int32() & 7);
 }
 
-Monster::~Monster() {
-}
 void Monster::tick() {
 	Mob::tick();
 	if(!this->level->isClientMaybe && !this->level->difficulty) {

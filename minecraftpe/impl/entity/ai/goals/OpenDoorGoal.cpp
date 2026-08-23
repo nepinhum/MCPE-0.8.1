@@ -8,8 +8,6 @@ OpenDoorGoal::OpenDoorGoal(Mob* a2, bool_t a3)
 	this->field_28 = a3;
 }
 
-OpenDoorGoal::~OpenDoorGoal() {
-}
 bool_t OpenDoorGoal::canContinueToUse() {
 	return this->field_28 && this->ticksLeft > 0 && this->canContinueToUse();
 }

@@ -7,8 +7,6 @@ CoalItem::CoalItem(int32_t id)
 	this->field_48 = Item::getTextureUVCoordinateSet("charcoal", 0);
 
 }
-CoalItem::~CoalItem() {
-}
 TextureUVCoordinateSet* CoalItem::getIcon(int32_t a2, int32_t, bool_t) {
 	if(a2 == 1) return &this->field_48;
 	return &this->iconUV;

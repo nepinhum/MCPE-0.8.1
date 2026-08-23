@@ -36,8 +36,6 @@ QuadrupedModel::QuadrupedModel(int32_t a2, float a3, int32_t a4, int32_t a5)
 	this->field_318.addBox(-2.0, 0.0, -2.0, 4, a2, 4, a3);
 	this->field_318.setPos(3.0, v10, -5.0);
 }
-QuadrupedModel::~QuadrupedModel() {
-}
 void QuadrupedModel::render(Entity* a2, float a3, float a4, float a5, float a6, float a7, float a8){
 	this->setupAnim(a3, a4, a5, a6, a7, a8);
 	if ( this->field_14 )

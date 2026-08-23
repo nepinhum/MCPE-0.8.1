@@ -25,8 +25,6 @@ bool_t WallTile::connectsTo(LevelSource* level, int32_t x, int32_t y, int32_t z)
 	return 0;
 }
 
-WallTile::~WallTile() {
-}
 bool_t WallTile::isCubeShaped() {
 	return 0;
 }

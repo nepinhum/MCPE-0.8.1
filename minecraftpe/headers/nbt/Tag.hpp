@@ -14,8 +14,8 @@ struct Tag{
 
 	Tag(const std::string&);
 
-	virtual ~Tag(void);
-	virtual	void deleteChildren(void);
+	virtual ~Tag(void){}
+	virtual	void deleteChildren(void){}
 	virtual void write(IDataOutput*) = 0;
 	virtual void load(IDataInput*) = 0;
 	virtual std::string	toString(void) = 0;

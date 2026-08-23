@@ -12,9 +12,6 @@ HangingEntity* HangingEntityItem::createEntity(Level* level, int32_t x, int32_t 
 	return new Painting(level, x, y, z, m);
 }
 
-
-HangingEntityItem::~HangingEntityItem() {
-}
 bool_t HangingEntityItem::useOn(ItemInstance* item, Player* player, Level* level, int32_t x, int32_t y, int32_t z, int32_t face, float fx, float fy, float fz) {
 	HangingEntity* e; // r0
 	Entity* v14;	  // r4

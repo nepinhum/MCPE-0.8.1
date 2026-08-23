@@ -17,5 +17,5 @@ struct LookControl
 	void setLookAt(float, float, float, float, float);
 
 	virtual void tick();
-	virtual ~LookControl();
+	virtual ~LookControl(){}
 };

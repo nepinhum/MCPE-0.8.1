@@ -4,7 +4,7 @@
 struct MetalTile : Tile{
 	MetalTile(int32_t, const std::string&);
 
-	virtual ~MetalTile();
+	virtual ~MetalTile(){}
 	virtual TextureUVCoordinateSet* getTexture(int32_t);
 
 };

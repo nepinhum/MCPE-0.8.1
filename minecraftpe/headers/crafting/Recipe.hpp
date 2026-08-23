@@ -8,12 +8,14 @@ struct Recipe
 
 	ItemPack items;
 
-	Recipe();
+	Recipe(){}
 	static bool_t isAnyAuxValue(int32_t id);
 
-	virtual ~Recipe();
+	virtual ~Recipe(){}
 	virtual bool_t matches(CraftingContainer*) = 0;
-	virtual ItemPack* getItemPack();
+	virtual ItemPack* getItemPack() {
+		return &this->items;
+	}
 	virtual int32_t getMaxCraftCount(ItemPack&) = 0;
 	virtual int32_t size() = 0;
 	virtual std::vector<ItemInstance>* assemble(CraftingContainer*) = 0;

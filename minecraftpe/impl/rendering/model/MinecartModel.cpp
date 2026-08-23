@@ -27,8 +27,6 @@ MinecartModel::MinecartModel()
 	this->field_18[5].xRotAngle = -(float)(3.1416 * 0.5);
 	this->field_18[3].yRotAngle = (float)(3.1416 * 0.5) + (float)(3.1416 * 0.5);
 }
-MinecartModel::~MinecartModel() {
-}
 void MinecartModel::render(Entity* a2, float a3, float a4, float a5, float a6, float a7, float a8) {
 	this->field_18[5].yOffset = 4 - a5;
 	for(int32_t i = 0; i != 6; ++i) {

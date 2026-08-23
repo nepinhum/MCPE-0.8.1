@@ -1,7 +1,5 @@
 #include <entity/particles/HeartParticle.hpp>
 
-HeartParticle::~HeartParticle() {
-}
 void HeartParticle::tick() {
 	int32_t maxAliveTime; // r2
 	int32_t ticksAlive;	  // r3

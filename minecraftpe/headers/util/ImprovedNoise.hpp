@@ -6,10 +6,10 @@
 #define FADE(x) (x*x*x*(x*(x*6 - 15) + 10))
 
 struct ImprovedNoise : public Synth{
-UNK	char		field_4;
-UNK	char		field_5;
-UNK	char		field_6;
-UNK	char		field_7;
+	char		field_4;
+	char		field_5;
+	char		field_6;
+	char		field_7;
 	float		xCoord;
 	float		yCoord;
 	float		zCoord;
@@ -17,7 +17,7 @@ UNK	char		field_7;
 
 	ImprovedNoise(Random*);
 	ImprovedNoise(void);
-	virtual ~ImprovedNoise(void);
+	virtual ~ImprovedNoise(void){}
 	void init(Random*);
 	float lerp(float, float, float);
 	float grad(int32_t, float, float, float);

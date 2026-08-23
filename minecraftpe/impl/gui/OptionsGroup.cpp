@@ -29,8 +29,6 @@ void OptionsGroup::createTextBox(const Options::Option* a2, Minecraft* a3) {
 	this->setupPositions();
 }
 
-OptionsGroup::~OptionsGroup() {
-}
 void OptionsGroup::render(Minecraft* a2, int32_t a3, int32_t a4) {
 	if(this->children.begin() != this->children.end()) {
 		a2->font->drawShadow(this->field_38, (float)this->posX + 2.0, (float)this->posY, -1);

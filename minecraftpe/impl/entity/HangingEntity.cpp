@@ -108,8 +108,6 @@ void HangingEntity::setPosition(int32_t x, int32_t y, int32_t z) {
 	this->tileZ = z;
 }
 
-HangingEntity::~HangingEntity() {
-}
 void HangingEntity::move(float a2, float a3, float a4) {
 	if(!this->level->isClientMaybe && !this->isDead && (float)((float)((float)(a3 * a3) + (float)(a2 * a2)) + (float)(a4 * a4)) > 0.0) {
 		this->dropItem();

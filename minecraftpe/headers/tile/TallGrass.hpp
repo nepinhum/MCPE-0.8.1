@@ -7,7 +7,7 @@ struct TallGrass: Bush
 
 	TallGrass(int32_t, const std::string&);
 
-	virtual ~TallGrass();
+	virtual ~TallGrass(){}
 	virtual TextureUVCoordinateSet* getTexture(int32_t, int32_t);
 	virtual TextureUVCoordinateSet* getCarriedTexture(int32_t, int32_t);
 	virtual int32_t getResource(int32_t, Random*);

@@ -11,8 +11,10 @@ struct Painting: HangingEntity
 	Painting(Level*, int32_t, int32_t, int32_t, int32_t, const std::string&);
 	void setRandomMotive(int32_t);
 
-	virtual ~Painting();
-	virtual float getShadowRadius();
+	virtual ~Painting(){}
+	virtual float getShadowRadius() {
+		return 0;
+	}
 	virtual bool_t isPickable();
 	virtual int32_t getEntityTypeId() const;
 	virtual void readAdditionalSaveData(CompoundTag*);

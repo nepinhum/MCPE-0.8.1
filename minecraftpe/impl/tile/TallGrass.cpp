@@ -18,8 +18,6 @@ TallGrass::TallGrass(int32_t id, const std::string& a3)
 	this->replaceable = 1;
 }
 
-TallGrass::~TallGrass() {
-}
 TextureUVCoordinateSet* TallGrass::getTexture(int32_t a2, int32_t a3) {
 	if(a3 == 1) {
 		return &this->field_80;

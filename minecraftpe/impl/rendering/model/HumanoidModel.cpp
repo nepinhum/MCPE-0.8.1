@@ -43,8 +43,6 @@ HumanoidModel::HumanoidModel(float a2, float a3)
 	this->leftLegModel.setPos(2.0, v8, 0.0);
 }
 
-HumanoidModel::~HumanoidModel() {
-}
 void HumanoidModel::render(Entity* a2, float a3, float a4, float a5, float a6, float a7, float a8) {
 	ItemInstance* item; // r7
 

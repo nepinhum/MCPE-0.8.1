@@ -19,12 +19,6 @@ Tag::Tag(const std::string& name) : field_0(0), tagName(name) {
 
 }
 
-Tag::~Tag(void){
-	//should delete tagName
-}
-void Tag::deleteChildren(void){
-
-}
 bool_t Tag::equals(const Tag& tag){
 	return (this->getId() == tag.getId()) && (this->tagName == tag.tagName);
 }

@@ -97,13 +97,17 @@ struct Player : Mob{
 	virtual bool_t hurt(Entity*, int32_t);
 	virtual void handleEntityEvent(char);
 	virtual void awardKillScore(Entity*, int32_t);
-	virtual int32_t getEntityTypeId() const;
+	virtual int32_t getEntityTypeId() const {
+		return 0;
+	}
 	virtual void resetPos(bool_t);
 	virtual void readAdditionalSaveData(CompoundTag*);
 	virtual void addAdditonalSaveData(CompoundTag*);
 	virtual void die(Entity*);
 	virtual bool_t isSleeping();
-	virtual float getBaseSpeed();
+	virtual float getBaseSpeed() {
+		return 0.1;
+	}
 	virtual int32_t getMaxHealth();
 	virtual int32_t getArmorValue();
 	virtual void travel(float, float);
@@ -121,8 +125,12 @@ struct Player : Mob{
 	virtual void drop(const ItemInstance*, bool_t);
 	virtual void startCrafting(int32_t, int32_t, int32_t, int32_t);
 	virtual void startStonecutting(int32_t, int32_t, int32_t);
-	virtual void startDestroying();
-	virtual void stopDestroying();
+	virtual void startDestroying() {
+		this->isDestroying = 1;
+	}
+	virtual void stopDestroying() {
+		this->isDestroying = 0;
+	}
 	virtual void openContainer(ChestTileEntity*);
 	virtual void openFurnace(FurnaceTileEntity*);
 	virtual void displayClientMessage(const std::string&);

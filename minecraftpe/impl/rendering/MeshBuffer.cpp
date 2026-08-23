@@ -132,11 +132,6 @@ MeshBuffer::~MeshBuffer(){
   this->reset();
 }
 
-MeshBuffer::VertexFormat::VertexFormat(void){
-	this->stride = 0;
-	for(int32_t i = 0; i < 4; ++i) this->offsets[i] = -1;
-}
-
 void MeshBuffer::VertexFormat::bindArrays() const{
 	glVertexPointer(3, GL_FLOAT, this->stride, (void*) this->offsets[0]);
 	uint8_t texOffset = this->offsets[1];
@@ -145,14 +140,6 @@ void MeshBuffer::VertexFormat::bindArrays() const{
 	if(colOffset != 255) glColorPointer(4, GL_UNSIGNED_BYTE, this->stride, (void*) colOffset);
 	uint8_t normOffset = this->offsets[3];
 	if(normOffset != 255) glNormalPointer(GL_BYTE, this->stride, (void*) normOffset);
-}
-
-void MeshBuffer::VertexFormat::enableField(MeshBuffer::VertexFormat::Field f){
-	static int32_t FieldSize[] = {0xC, 0x8, 0x4, 0x4};
-	if(this->offsets[f] == 255){
-		this->offsets[f] = stride;
-		this->stride += FieldSize[f];
-	}
 }
 
 

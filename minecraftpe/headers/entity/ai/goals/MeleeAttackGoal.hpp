@@ -26,5 +26,7 @@ struct MeleeAttackGoal: Goal
 	virtual void start();
 	virtual void stop();
 	virtual void tick();
-	virtual void setLevel(Level*);
+	virtual void setLevel(Level* l) {
+		this->level = l;
+	}
 };

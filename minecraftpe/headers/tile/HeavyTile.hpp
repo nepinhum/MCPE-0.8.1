@@ -11,8 +11,10 @@ struct HeavyTile: Tile
 
 	static bool_t isFree(Level*, int32_t, int32_t, int32_t);
 
-	virtual ~HeavyTile();
-	virtual int32_t getTickDelay();
+	virtual ~HeavyTile(){}
+	virtual int32_t getTickDelay() {
+		return 2;
+	}
 	virtual void tick(Level*, int32_t, int32_t, int32_t, Random*);
 	virtual void neighborChanged(Level*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
 	virtual void onPlace(Level*, int32_t, int32_t, int32_t);

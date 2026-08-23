@@ -118,8 +118,6 @@ void Throwable::shoot(float x, float y, float z, float a5, float a6) {
 	this->prevPitch = v22;
 }
 
-Throwable::~Throwable() {
-}
 void Throwable::lerpMotion(float x, float y, float z) {
 	float v8; // r7
 	float v9; // s15

@@ -5,8 +5,6 @@ RailTile::RailTile(int32_t a2)
 	this->field_84 = this->getTextureUVCoordinateSet("rail_normal_turned", 0);
 }
 
-RailTile::~RailTile() {
-}
 TextureUVCoordinateSet* RailTile::getTexture(int32_t a2, int32_t a3) {
 	if(a3 <= 5) {
 		return &this->textureUV;

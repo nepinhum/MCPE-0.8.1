@@ -40,7 +40,7 @@ struct NetherReactorTileEntity: TileEntity
 	void turnGlowingObsidianLayerToObsidian(int32_t);
 	void turnLayerToGlowingObsidian(int32_t, int32_t);
 
-	virtual ~NetherReactorTileEntity();
+	virtual ~NetherReactorTileEntity(){}
 	virtual bool_t shouldSave();
 	virtual void load(CompoundTag*);
 	virtual bool_t save(CompoundTag*);

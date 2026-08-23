@@ -26,10 +26,28 @@ struct Recipes
 		char_t chr;
 		char field_1D, field_1E, field_1F;
 
-		Type(const Recipes::Type&);
-		Type(char_t, Item*);
-		Type(char_t, const ItemInstance&);
-		Type(char_t, Tile*);
+		Type(const Recipes::Type& a2)
+			: itemInstance(a2.itemInstance) {
+			this->item = a2.item;
+			this->tile = a2.tile;
+			this->chr = a2.chr;
+		}
+		Type(char_t a2, Item* a3) {
+			this->item = a3;
+			this->tile = 0;
+			this->chr = a2;
+		}
+		Type(char_t a2, const ItemInstance& a3)
+			: itemInstance(a3) {
+			this->item = 0;
+			this->tile = 0;
+			this->chr = a2;
+		}
+		Type(char_t a2, Tile* a3) {
+			this->tile = a3;
+			this->item = 0;
+			this->chr = a2;
+		}
 	};
 	static Recipes* instance;
 	std::vector<Recipe*> recipes;

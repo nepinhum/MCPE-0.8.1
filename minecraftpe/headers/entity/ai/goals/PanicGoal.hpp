@@ -11,7 +11,7 @@ struct PanicGoal: Goal
 
 	PanicGoal(PathfinderMob*, float);
 
-	virtual ~PanicGoal();
+	virtual ~PanicGoal(){}
 	virtual bool_t canUse();
 	virtual bool_t canContinueToUse();
 	virtual void start();

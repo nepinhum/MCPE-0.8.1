@@ -13,11 +13,6 @@ ThrownEgg::ThrownEgg(Level* level)
 	this->entityRenderId = THROWNEGG;
 }
 
-ThrownEgg::~ThrownEgg() {
-}
-int32_t ThrownEgg::getEntityTypeId() const {
-	return 82;
-}
 void ThrownEgg::onHit(const HitResult& a2) {
 	int32_t v3;	 // r8
 	int32_t v4;	 // r5

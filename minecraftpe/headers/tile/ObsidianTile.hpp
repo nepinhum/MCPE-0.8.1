@@ -8,8 +8,13 @@ struct ObsidianTile : StoneTile{
 	ObsidianTile(int32_t, const std::string&, bool_t glowing);
 	void poofParticles(Level*, int32_t, int32_t, int32_t);
 
-	virtual ~ObsidianTile();
+	virtual ~ObsidianTile() {
+	}
 	virtual void animateTick(Level*, int32_t, int32_t, int32_t, Random*);
-	virtual int32_t getResource(int32_t, Random*);
-	virtual int32_t getResourceCount(Random*);
+	virtual int32_t getResource(int32_t, Random*){
+		return Tile::obsidian->blockID;
+	}
+	virtual int32_t getResourceCount(Random*) {
+		return 1;
+	}
 };

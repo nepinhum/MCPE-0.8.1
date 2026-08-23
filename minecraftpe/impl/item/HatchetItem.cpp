@@ -15,8 +15,6 @@ HatchetItem::HatchetItem(int32_t a2, const Item::Tier& a3)
 	this->setTiles(tiles);
 }
 
-HatchetItem::~HatchetItem() {
-}
 float HatchetItem::getDestroySpeed(ItemInstance* a2, Tile* a3) {
 	if(a3 && a3->material == Material::wood) {
 		return this->efficiencyMultiplier;

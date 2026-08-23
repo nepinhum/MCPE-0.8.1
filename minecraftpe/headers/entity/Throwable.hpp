@@ -19,7 +19,7 @@ struct Throwable: Entity
 	void shoot(const Vec3&, float, float);
 	void shoot(float, float, float, float, float);
 
-	virtual ~Throwable();
+	virtual ~Throwable(){}
 	virtual void lerpMotion(float, float, float);
 	virtual void tick();
 	virtual float getShadowHeightOffs();

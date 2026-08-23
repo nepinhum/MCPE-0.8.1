@@ -54,5 +54,5 @@ struct MojangConnector{
 	void setStatus(MojangConnectionStatus);
 	void updateUIThread();
 	std::string urlEncode(std::string);
-	~MojangConnector();
+	~MojangConnector(){}
 };

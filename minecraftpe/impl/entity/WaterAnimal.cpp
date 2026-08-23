@@ -7,8 +7,6 @@ WaterAnimal::WaterAnimal(Level* level)
 int32_t WaterAnimal::getExperienceReward(Player*) {
 	return this->random.genrand_int32() % 3 + 1;
 }
-WaterAnimal::~WaterAnimal() {
-}
 int32_t WaterAnimal::getCreatureBaseType() {
 	return 3;
 }
@@ -23,9 +21,6 @@ bool_t WaterAnimal::isWaterMob() {
 }
 int32_t WaterAnimal::getAmbientSoundInterval() {
 	return 120;
-}
-float WaterAnimal::getBaseSpeed() {
-	return 0.2;
 }
 bool_t WaterAnimal::canSpawn() {
 	return this->level->isUnobstructed(this->boundingBox);

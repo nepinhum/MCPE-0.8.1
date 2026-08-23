@@ -52,11 +52,6 @@ bool_t HeavyTile::isFree(Level* level, int32_t x, int32_t y, int32_t z) {
 	return result;
 }
 
-HeavyTile::~HeavyTile() {
-}
-int32_t HeavyTile::getTickDelay() {
-	return 2;
-}
 void HeavyTile::tick(Level* level, int32_t x, int32_t y, int32_t z, Random*) {
 	if(!level->isClientMaybe) {
 		this->checkSlide(level, x, y, z);

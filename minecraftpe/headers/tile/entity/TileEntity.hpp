@@ -49,7 +49,7 @@ struct TileEntity
 	void setupLighting(bool_t, float);
 
 
-	virtual ~TileEntity();
+	virtual ~TileEntity() {}
 	virtual bool_t shouldSave() = 0;
 	virtual void load(CompoundTag*);
 	virtual bool_t save(CompoundTag*);

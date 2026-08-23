@@ -16,6 +16,6 @@ struct MoveControl
 	bool_t hasWanted();
 	void setWantedPosition(float x, float y, float z, float speed);
 
-	virtual ~MoveControl();
+	virtual ~MoveControl(){}
 	virtual void tick();
 };

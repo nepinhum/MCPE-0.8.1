@@ -6,10 +6,6 @@ MCOServerListItem::MCOServerListItem(const MCOServerListItem&){
 MCOServerListItem::MCOServerListItem(MCOServerListItem&&){
 	printf("MCOServerListItem::MCOServerListItem(MCOServerListItem&&) - not implemented\n");
 }
-MCOServerListItem::MCOServerListItem() {
-	this->worldName = "My World";
-	this->gamemodeName = "creative";
-}
 MCOServerListItem& MCOServerListItem::operator=(const MCOServerListItem& a2) {
 	this->field_0 = a2.field_0;
 	this->field_4 = a2.field_4;
@@ -26,6 +22,4 @@ MCOServerListItem& MCOServerListItem::operator=(const MCOServerListItem& a2) {
 MCOServerListItem& MCOServerListItem::operator=(MCOServerListItem&&){
 	printf("MCOServerListItem::operator=(MCOServerListItem&&) - not implemented\n");
 	return *this;
-}
-MCOServerListItem::~MCOServerListItem() {
 }

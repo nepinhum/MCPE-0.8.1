@@ -31,9 +31,7 @@ bool_t InBedScreen::handleBackEvent(bool_t a2) {
 	}
 	return 1;
 }
-bool_t InBedScreen::renderGameBehind() {
-	return 1;
-}
+
 void InBedScreen::buttonClicked(Button* a2) {
 	if(this->leaveBedButton == a2) {
 		this->handleBackEvent(0);

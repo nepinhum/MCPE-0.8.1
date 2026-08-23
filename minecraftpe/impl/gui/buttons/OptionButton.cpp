@@ -61,8 +61,6 @@ void OptionButton::updateImage(Options* a2) {
 	this->boolValue = v8;
 }
 
-OptionButton::~OptionButton() {
-}
 void OptionButton::mouseClicked(Minecraft* a2, int32_t a3, int32_t a4, int32_t a5) {
 	if(a5 == 1 && this->clicked(a2, a3, a4)) {
 		this->toggle(&a2->options);

@@ -614,9 +614,6 @@ void Player::handleEntityEvent(char evid) {
 void Player::awardKillScore(Entity*, int32_t a3) {
 	this->score += a3;
 }
-int32_t Player::getEntityTypeId() const {
-	return 0;
-}
 void Player::resetPos(bool_t a2) {
 	int32_t v4; // r0
 
@@ -770,9 +767,6 @@ void Player::die(Entity* a2) {
 }
 bool_t Player::isSleeping() {
 	return this->sleeping;
-}
-float Player::getBaseSpeed() {
-	return 0.1;
 }
 int32_t Player::getMaxHealth() {
 	return 20;
@@ -985,12 +979,6 @@ void Player::drop(const ItemInstance* a2, bool_t a3) {
 void Player::startCrafting(int32_t, int32_t, int32_t, int32_t) {
 }
 void Player::startStonecutting(int32_t, int32_t, int32_t) {
-}
-void Player::startDestroying() {
-	this->isDestroying = 1;
-}
-void Player::stopDestroying() {
-	this->isDestroying = 0;
 }
 void Player::openContainer(ChestTileEntity*) {
 }

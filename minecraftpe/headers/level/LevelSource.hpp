@@ -5,7 +5,7 @@ struct Material;
 struct Biome;
 
 struct LevelSource{
-	virtual ~LevelSource();
+	virtual ~LevelSource(){}
 	virtual int32_t getTile(int32_t, int32_t, int32_t) = 0;
 	virtual bool_t isEmptyTile(int32_t, int32_t, int32_t) = 0;
 	virtual float getBrightness(int32_t, int32_t, int32_t) = 0;

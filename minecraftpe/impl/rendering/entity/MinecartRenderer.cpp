@@ -15,8 +15,6 @@ void MinecartRenderer::renderMinecartContents(Entity* a2, float a3, Tile* a4, in
 	glPopMatrix();
 }
 
-MinecartRenderer::~MinecartRenderer() {
-}
 void MinecartRenderer::render(Entity* e_, float x, float y, float z, float a6, float a7) {
 	Minecart* e = (Minecart*)e_;
 	float v11; // s23

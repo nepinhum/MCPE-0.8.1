@@ -8,21 +8,6 @@ ByteArrayTag::ByteArrayTag(const std::string& n, int8_t* arr, int32_t length) : 
 	this->value = arr;
 	this->count = length;
 }
-void ByteArrayTag::write(IDataOutput* out){
-	out->writeInt(this->count);
-	out->writeBytes(this->value, this->count);
-}
-void ByteArrayTag::load(IDataInput* in){
-	int32_t n = in->readInt();
-	int8_t* arr = new int8_t[n];
-	this->value = arr;
-	//XXX doesnt change count for some reason
-
-	in->readBytes(this->value, n);
-}
-int32_t ByteArrayTag::getId(void) const{
-	return 7;
-}
 std::string ByteArrayTag::toString(){
 	std::string result = "[";
 	result += this->count;

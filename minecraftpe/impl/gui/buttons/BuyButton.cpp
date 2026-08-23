@@ -20,8 +20,6 @@ BuyButton::BuyButton(int32_t n) : ImageButton(n, ""){
 	this->setImageDef(img, 1);
 }
 
-BuyButton::~BuyButton(){}
-
 void BuyButton::render(Minecraft* mc, int32_t x, int32_t y){
 	int32_t color;
 	glColor4f(this->color.r, this->color.g, this->color.b, this->color.a);

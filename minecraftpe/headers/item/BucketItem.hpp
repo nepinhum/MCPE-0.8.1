@@ -7,7 +7,7 @@ struct BucketItem: Item
 	BucketItem(int32_t);
 	bool_t emptyBucket(Level*, int32_t, int32_t, int32_t, int32_t);
 
-	virtual ~BucketItem();
+	virtual ~BucketItem(){}
 	virtual int32_t getMaxStackSize(const ItemInstance*);
 	virtual TextureUVCoordinateSet* getIcon(int32_t, int32_t, bool_t);
 	virtual bool_t useOn(ItemInstance*, Player*, Level*, int32_t, int32_t, int32_t, int32_t, float, float, float);

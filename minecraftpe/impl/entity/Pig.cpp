@@ -34,16 +34,11 @@ void Pig::setSaddle(bool_t a2) {
 	this->synchedEntityData.set<int8_t>(16, a2);
 }
 
-Pig::~Pig() {
-}
 bool_t Pig::interactWithPlayer(Player* a2) {
 	return Animal::interactWithPlayer(a2);
 }
 int32_t Pig::getEntityTypeId() const {
 	return 12;
-}
-float Pig::getBaseSpeed() {
-	return 0.25;
 }
 int32_t Pig::getMaxHealth() {
 	return 10;

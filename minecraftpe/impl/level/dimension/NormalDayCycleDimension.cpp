@@ -1,9 +1,7 @@
 #include <level/dimension/NormalDayCycleDimension.hpp>
 #include <math.h>
 
-NormalDayCycleDimension::~NormalDayCycleDimension() {
-}
-float NormalDayCycleDimension::getTimeOfDay(int32_t a2, float a3) {
+float NormalDayCycleDimension::getTimeOfDay(long a2, float a3) {
 	float v3; // s16
 	float v4; // s14
 

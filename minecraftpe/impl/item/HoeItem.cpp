@@ -11,8 +11,6 @@ HoeItem::HoeItem(int32_t id, Item::Tier t)
 	this->setMaxDamage(t.durability);
 }
 
-HoeItem::~HoeItem() {
-}
 bool_t HoeItem::useOn(ItemInstance* item, Player* player, Level* level, int32_t x, int32_t y, int32_t z, int32_t face, float fX, float fY, float fZ) {
 	int32_t v14;	 // r8
 	int32_t result;	 // r0

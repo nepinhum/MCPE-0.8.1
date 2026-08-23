@@ -26,5 +26,5 @@ struct NinePatchLayer : GuiElement{
 	void getPatchInfo(int32_t, int32_t, float&, float&, float&, float&);
 	NinePatchLayer* setExcluded(int32_t);
 	void setSize(float, float);
-	virtual ~NinePatchLayer();
+	virtual ~NinePatchLayer(){}
 };

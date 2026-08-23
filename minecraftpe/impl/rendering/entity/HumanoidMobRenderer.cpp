@@ -19,8 +19,6 @@ void HumanoidMobRenderer::renderHand() {
 	glDisableClientState(0x8078u);
 }
 
-HumanoidMobRenderer::~HumanoidMobRenderer() {
-}
 void HumanoidMobRenderer::render(Entity* a2_, float a3, float a4, float a5, float a6, float a7) {
 	Mob* a2 = (Mob*)a2_;
 	if(a2->getCarriedItem()) {

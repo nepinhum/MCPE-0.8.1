@@ -27,8 +27,6 @@ bool_t TemptGoal::isRunning() {
 	return this->running;
 }
 
-TemptGoal::~TemptGoal() {
-}
 bool_t TemptGoal::canUse() {
 	int32_t timeout; // r3
 	Player* NearestPlayer; // r0

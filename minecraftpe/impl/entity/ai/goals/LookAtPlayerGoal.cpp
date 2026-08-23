@@ -19,8 +19,6 @@ LookAtPlayerGoal::LookAtPlayerGoal(Mob* a2, float a3, float a4){
 	this->ticksLeft = 0;
 }
 
-LookAtPlayerGoal::~LookAtPlayerGoal() {
-}
 bool_t LookAtPlayerGoal::canUse() {
 	float v2;		 // s14
 	Player* nearest; // r0

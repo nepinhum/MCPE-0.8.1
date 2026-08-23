@@ -14,7 +14,11 @@ struct PaintingRenderer: EntityRenderer, AppPlatform::Listener
 	MeshBuffer _buildPainting(int32_t, int32_t, int32_t, int32_t);
 	MeshBuffer* _getMesh(const Motive*);
 
-	virtual ~PaintingRenderer();
+	virtual ~PaintingRenderer() {
+		AppPlatform::_singleton->removeListener(this);
+	}
 	virtual void render(Entity*, float, float, float, float, float);
-	virtual void onAppSuspended();
+	virtual void onAppSuspended() {
+		this->motives.clear();
+	}
 };

@@ -49,7 +49,6 @@ void Button::setOverrideScreenRendering(bool_t a2){
 	this->overridingScreenRendering = a2;
 }
 
-Button::~Button(){}
 void Button::render(struct Minecraft* mc, int32_t x, int32_t y){
 	if(this->visible){
 		this->renderBg(mc, x, y);

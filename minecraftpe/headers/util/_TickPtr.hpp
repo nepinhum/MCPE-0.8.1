@@ -4,5 +4,6 @@
 struct _TickPtr
 {
 	virtual void invalidate() = 0;
-	virtual ~_TickPtr();
+	virtual ~_TickPtr() {
+	}
 };

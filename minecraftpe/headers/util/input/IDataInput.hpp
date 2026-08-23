@@ -4,7 +4,7 @@
 struct IDataInput{
 	bool_t hasBytesLeft(int32_t a2);
 
-	virtual ~IDataInput();
+	virtual ~IDataInput(){}
 	virtual std::string readString(void) = 0;
 	virtual float readFloat(void) = 0;
 	virtual double readDouble(void) = 0;

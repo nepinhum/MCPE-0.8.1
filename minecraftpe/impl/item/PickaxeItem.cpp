@@ -27,8 +27,6 @@ PickaxeItem::PickaxeItem(int32_t a2, const Item::Tier& a3)
 	this->setTiles(tiles);
 }
 
-PickaxeItem::~PickaxeItem() {
-}
 float PickaxeItem::getDestroySpeed(ItemInstance* a2, Tile* a3) {
 	if(a3 && (a3->material == Material::metal || a3->material == Material::stone)) {
 		return this->efficiencyMultiplier;

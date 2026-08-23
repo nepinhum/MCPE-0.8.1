@@ -18,8 +18,6 @@ CompassItem::CompassItem(int32_t id)
 		tex->maxY = (float)i * 0.03125;
 	}
 }
-CompassItem::~CompassItem() {
-}
 TextureUVCoordinateSet* CompassItem::getIcon(int32_t a2, int32_t a3, bool_t a4) {
 	if(a4) return &this->iconUV;
 	return &this->textures[a3];

@@ -11,8 +11,6 @@ RandomStrollGoal::RandomStrollGoal(PathfinderMob* ent, float speed)
 	this->setRequiredControlFlags(3);
 }
 
-RandomStrollGoal::~RandomStrollGoal() {
-}
 bool_t RandomStrollGoal::canUse() {
 	if(this->holder->getNoActionTime() > 99 || this->holder->level->random.genrand_int32() % 120) {
 		return 0;

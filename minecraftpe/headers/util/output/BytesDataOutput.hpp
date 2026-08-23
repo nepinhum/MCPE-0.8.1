@@ -3,13 +3,23 @@
 
 struct BytesDataOutput: IDataOutput
 {
-	virtual ~BytesDataOutput();
+	virtual ~BytesDataOutput(){}
 	virtual void writeString(const std::string&);
-	virtual void writeFloat(float);
-	virtual void writeDouble(double);
+	virtual void writeFloat(float a2) {
+		this->writeBytes(&a2, 4);
+	}
+	virtual void writeDouble(double a2){
+		this->writeBytes(&a2, 8);
+	}
 	virtual void writeByte(int8_t);
-	virtual void writeShort(int16_t);
-	virtual void writeInt(int32_t);
-	virtual void writeLongLong(int64_t);
+	virtual void writeShort(int16_t a2) {
+		this->writeBytes(&a2, 2);
+	}
+	virtual void writeInt(int32_t a2) {
+		this->writeBytes(&a2, 4);
+	}
+	virtual void writeLongLong(int64_t a2) {
+		this->writeBytes(&a2, 8);
+	}
 	virtual void writeBytes(const void*, int32_t) = 0;
 };

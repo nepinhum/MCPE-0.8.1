@@ -9,10 +9,10 @@ struct IMoveInput : IConfigListener{
 	int8_t flyUpPressed;
 	int8_t flyDownPressed, idkWhatIsThis2;
 
-	virtual ~IMoveInput();
-	virtual void tick(struct Player*);
-	virtual void render(float);
-	virtual void setKey(int32_t, bool_t);
-	virtual void releaseAllKeys();
-	virtual void onConfigChanged(const Config&);
+	virtual ~IMoveInput(){}
+	virtual void tick(struct Player*){}
+	virtual void render(float){}
+	virtual void setKey(int32_t, bool_t){}
+	virtual void releaseAllKeys(){}
+	virtual void onConfigChanged(const Config&){}
 };

@@ -49,10 +49,14 @@ UNK	int8_t field_33 = 0;
 	//TODO statics
 
 
-	virtual ~Biome(void);
+	virtual ~Biome(void) {
+		if(this->biomeName) delete this->biomeName;
+	}
 	virtual Feature* getTreeFeature(Random*);
 	virtual Feature* getGrassFeature(Random*);
-	virtual float getTemperature(void);
+	virtual float getTemperature(void){
+		return this->temperature;
+	}
 	virtual float adjustScale(float);
 	virtual float adjustDepth(float);
 	virtual Color4 getSkyColor(float);

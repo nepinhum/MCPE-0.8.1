@@ -306,8 +306,6 @@ void TileEntity::setupLighting(bool_t a2, float a3) {
 	glColor4f(v22, v23, v24, 1.0);
 }
 
-TileEntity::~TileEntity() {
-}
 void TileEntity::load(CompoundTag* a2) {
 	this->posX = a2->getInt("x");
 	this->posY = a2->getInt("y");

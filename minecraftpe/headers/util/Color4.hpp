@@ -24,7 +24,21 @@ struct Color4{
 		this->a = a;
 	}
 	int32_t toARGB(void);
-	static Color4 lerp(const Color4&, const Color4&, float);
+	static Color4 lerp(const Color4& a2, const Color4& a3, float a4){
+		return Color4((a4 * a3.r) + ((float)(1.0 - a4) * a2.r), (a4 * a3.g) + ((float)(1.0 - a4) * a2.g), (a4 * a3.b) + ((float)(1.0 - a4) * a2.b), (a4 * a3.a) + ((float)(1.0 - a4) * a2.a));
+	}
 	static Color4 fromHSB(float, float, float);
-	void clamp(void);
+	void clamp(void){
+		if(this->a > 1.0) this->a = 1.0;
+		else if(this->a <= 0.0) this->a = 0.0;
+
+		if(this->r > 1.0) this->r = 1.0;
+		else if(this->r <= 0.0) this->r = 0.0;
+
+		if(this->g > 1.0) this->g = 1.0;
+		else if(this->g <= 0.0) this->g = 0.0;
+
+		if(this->b > 1.0) this->b = 1.0;
+		else if(this->b <= 0.0) this->b = 0.0;
+	}
 };

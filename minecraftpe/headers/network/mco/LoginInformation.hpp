@@ -14,5 +14,6 @@ struct LoginInformation{
 		this->profileName = "";
 	}
 
-	~LoginInformation(void);
+	~LoginInformation(void) {
+	}
 };

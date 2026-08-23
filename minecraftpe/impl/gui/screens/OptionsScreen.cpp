@@ -198,9 +198,6 @@ void OptionsScreen::tick() {
 }
 void OptionsScreen::removed() {
 }
-bool_t OptionsScreen::renderGameBehind() {
-	return 1;
-}
 void OptionsScreen::setTextboxText(const std::string& a2) {
 	if(this->selectedCategory) {
 		this->selectedCategory->setTextboxText(a2);

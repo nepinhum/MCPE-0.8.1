@@ -13,8 +13,6 @@ PumpkinTile::PumpkinTile(int32_t a2, bool_t lit)
 	this->field_B4 = *texItem->getUV(this->field_80 ? 3 : 2);
 }
 
-PumpkinTile::~PumpkinTile() {
-}
 TextureUVCoordinateSet* PumpkinTile::getTexture(int32_t a2, int32_t a3) {
 	bool_t v4; // zf
 

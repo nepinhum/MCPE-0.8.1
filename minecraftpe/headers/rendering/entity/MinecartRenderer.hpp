@@ -11,6 +11,6 @@ struct MinecartRenderer: EntityRenderer
 	MinecartRenderer();
 	void renderMinecartContents(Entity*, float, Tile*, int32_t);
 
-	virtual ~MinecartRenderer();
+	virtual ~MinecartRenderer(){}
 	virtual void render(Entity*, float, float, float, float, float);
 };

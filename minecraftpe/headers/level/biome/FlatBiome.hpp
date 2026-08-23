@@ -2,7 +2,10 @@
 #include <level/biome/Biome.hpp>
 
 struct FlatBiome : public Biome{
-	FlatBiome();
+	FlatBiome()
+		: Biome() {
+	}
 
-	virtual ~FlatBiome();
+	virtual ~FlatBiome() {
+	}
 };

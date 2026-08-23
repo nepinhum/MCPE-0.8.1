@@ -4,15 +4,6 @@
 ByteTag::ByteTag(const std::string& s, int8_t v) : Tag(s){
 	this->value = v;
 }
-void ByteTag::load(IDataInput* in){
-	this->value = in->readByte();
-}
-void ByteTag::write(IDataOutput* out){
-	out->writeByte(this->value);
-}
-int32_t ByteTag::getId(void) const{
-	return 1;
-}
 std::string ByteTag::toString(){
 	return std::string((unsigned char) this->value, 1);
 }

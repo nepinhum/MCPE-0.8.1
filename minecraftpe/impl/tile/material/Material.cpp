@@ -232,39 +232,3 @@ void Material::teardownMaterials(void){
 		Material::web = 0;
 	}
 }
-
-bool_t Material::isLiquid(void) const{
-	return 0;
-}
-bool_t Material::letsWaterThrough(void) const{
-	if(this->isLiquid()) return 0;
-	return this->isSolid() ^ 1;
-}
-bool_t Material::isSolid(void) const{
-	return 1;
-}
-bool_t Material::blocksLight(void) const{
-	return 1;
-}
-bool_t Material::isSolidBlocking(void) const{
-	if(this->translucent) return 0;
-	return this->blocksMotion();
-}
-
-bool_t Material::isAlwaysDestroyable(void) const {
-	return this->alwaysDestroyable;
-}
-bool_t Material::blocksMotion(void) const{
-	return 1;
-}
-bool_t Material::isFlammable(void) const{
-	return this->flammable;
-}
-bool_t Material::isReplaceable(void) const{
-	return this->replaceable;
-}
-
-Material::Material(void){
-	this->alwaysDestroyable = 1;
-	this->flammable = this->translucent = this->replaceable = 0;
-}

@@ -5,5 +5,5 @@ struct PigModel: QuadrupedModel
 {
 	PigModel(float);
 
-	virtual ~PigModel();
+	virtual ~PigModel(){}
 };

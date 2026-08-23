@@ -26,12 +26,14 @@ struct Particle: Entity
 	void scale(float);
 	Particle* setPower(float);
 
-	virtual ~Particle();
+	virtual ~Particle() {}
 	virtual void tick();
-	virtual int32_t getEntityTypeId() const;
-	virtual void readAdditionalSaveData(CompoundTag*);
-	virtual void addAdditonalSaveData(CompoundTag*);
+	virtual int32_t getEntityTypeId() const {
+		return 0;
+	}
+	virtual void readAdditionalSaveData(CompoundTag*){}
+	virtual void addAdditonalSaveData(CompoundTag*){}
 	virtual void init(float, float, float, float, float, float, int32_t) = 0;
-	virtual void setEntity(Entity*);
+	virtual void setEntity(Entity*){}
 	virtual void render(Tesselator&, float, float, float, float, float, float);
 };

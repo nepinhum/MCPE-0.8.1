@@ -8,7 +8,7 @@ struct Monster: PathfinderMob
 	Monster(Level*);
 	bool_t isDarkEnoughToSpawn();
 
-	virtual ~Monster();
+	virtual ~Monster(){}
 	virtual void tick();
 	virtual bool_t hurt(Entity*, int32_t);
 

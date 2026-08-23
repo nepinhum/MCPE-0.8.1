@@ -5,7 +5,7 @@ struct WallTile : Tile{
 	WallTile(int32_t, Tile*);
 	bool_t connectsTo(LevelSource*, int32_t, int32_t, int32_t);
 
-	virtual ~WallTile();
+	virtual ~WallTile(){}
 	virtual bool_t isCubeShaped();
 	virtual int32_t getRenderShape();
 	virtual void updateShape(LevelSource*, int32_t, int32_t, int32_t);

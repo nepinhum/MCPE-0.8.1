@@ -91,9 +91,6 @@ MeshBuffer* PaintingRenderer::_getMesh(const Motive* a2) {
 	return &(this->motives[a2] = this->_buildPainting(a2->w, a2->h, a2->uo, a2->vo)); //TODO check
 }
 
-PaintingRenderer::~PaintingRenderer() {
-	AppPlatform::_singleton->removeListener(this);
-}
 void PaintingRenderer::render(Entity* e_, float x, float y, float z, float angle, float a7) {
 	Painting* e = (Painting*)e_;
 	MeshBuffer* mesh; // r6
@@ -107,7 +104,4 @@ void PaintingRenderer::render(Entity* e_, float x, float y, float z, float angle
 	glScalef(0.0625, 0.0625, 0.0625);
 	mesh->render();
 	glPopMatrix();
-}
-void PaintingRenderer::onAppSuspended() {
-	this->motives.clear();
 }

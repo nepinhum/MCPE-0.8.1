@@ -23,10 +23,6 @@ GameMode::GameMode(Minecraft* a2) {
 	this->delay = 0;
 }
 
-GameMode::~GameMode() {
-}
-void GameMode::initLevel(Level*) {
-}
 void GameMode::startDestroyBlock(int32_t x, int32_t y, int32_t z, int32_t a5) {
 	if(!this->minecraft->player->getCarriedItem() || Item::bow != this->minecraft->player->getCarriedItem()->itemClass || !Item::bow) {
 		this->destroyBlock(x, y, z, a5);
@@ -65,8 +61,6 @@ bool_t GameMode::destroyBlock(int32_t x, int32_t y, int32_t z, int32_t side) {
 		this->minecraft->rakNetInstance->send(v18);
 	}
 	return v11;
-}
-void GameMode::stopDestroyBlock() {
 }
 void GameMode::tick() {
 	this->field_4 = this->field_8;
@@ -129,11 +123,6 @@ Player* GameMode::createPlayer(Level* a2) {
 void GameMode::initPlayer(Player* a2) {
 	this->initAbilities(a2->abilities);
 }
-void GameMode::adjustPlayer(Player*) {
-}
-bool_t GameMode::canHurtPlayer() {
-	return 0;
-}
 void GameMode::interact(Player* a2, Entity* a3) {
 	a2->interact(a3);
 }
@@ -146,14 +135,6 @@ bool_t GameMode::handleInventoryMouseClick(int32_t, int32_t, int32_t, Player*) {
 	return 0;
 }
 void GameMode::handleCloseInventory(int32_t, Player*) {
-}
-bool_t GameMode::isCreativeType() {
-	return 0;
-}
-bool_t GameMode::isSurvivalType() {
-	return 0;
-}
-void GameMode::initAbilities(Abilities&) {
 }
 void GameMode::releaseUsingItem(Player* a2) {
 	if(this->minecraft->level->isClientMaybe) {

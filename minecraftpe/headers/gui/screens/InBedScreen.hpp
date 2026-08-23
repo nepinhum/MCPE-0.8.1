@@ -16,6 +16,8 @@ struct InBedScreen: Screen
 	virtual void init();
 	virtual void setupPositions();
 	virtual bool_t handleBackEvent(bool_t);
-	virtual bool_t renderGameBehind();
+	virtual bool_t renderGameBehind() {
+		return 1;
+	}
 	virtual void buttonClicked(Button*);
 };

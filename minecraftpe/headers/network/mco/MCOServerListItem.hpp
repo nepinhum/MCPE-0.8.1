@@ -20,9 +20,12 @@ struct MCOServerListItem
 
 	MCOServerListItem(const MCOServerListItem&);
 	MCOServerListItem(MCOServerListItem&&);
-	MCOServerListItem();
+	MCOServerListItem() {
+		this->worldName = "My World";
+		this->gamemodeName = "creative";
+	}
 
 	MCOServerListItem& operator=(const MCOServerListItem&);
 	MCOServerListItem& operator=(MCOServerListItem&&);
-	~MCOServerListItem();
+	~MCOServerListItem(){}
 };

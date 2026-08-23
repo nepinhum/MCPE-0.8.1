@@ -9,8 +9,6 @@ MinecartRideable::MinecartRideable(Level* a2, float x, float y, float z) : Minec
 
 }
 
-MinecartRideable::~MinecartRideable() {
-}
 bool_t MinecartRideable::interactWithPlayer(Player* a2) {
 	if(this->rider && this->rider->isPlayer() && this->rider == a2) {
 		return 1;

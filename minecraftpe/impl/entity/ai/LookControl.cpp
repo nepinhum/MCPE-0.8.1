@@ -92,5 +92,3 @@ void LookControl::tick() {
 		}
 	}
 }
-LookControl::~LookControl() {
-}

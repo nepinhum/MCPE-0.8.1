@@ -39,11 +39,6 @@ void Painting::setRandomMotive(int32_t direction) {
 	this->setDir(direction);
 }
 
-Painting::~Painting() {
-}
-float Painting::getShadowRadius() {
-	return 0;
-}
 bool_t Painting::isPickable() {
 	return 1;
 }

@@ -20,10 +20,14 @@ struct Arrow : Entity{
 	void _init();
 	void shoot(float, float, float, float, float);
 
-	virtual ~Arrow();
+	virtual ~Arrow() {
+	}
 	virtual void lerpMotion(float, float, float);
 	virtual void tick();
-	virtual float getShadowRadius();
+	virtual float getShadowRadius() {
+		if(this->inGround) return 0;
+		else return 0.1;
+	}
 	virtual float getShadowHeightOffs();
 	virtual void playerTouch(Player*);
 	virtual int32_t getEntityTypeId() const;

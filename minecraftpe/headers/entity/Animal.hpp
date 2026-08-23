@@ -10,7 +10,8 @@ struct Animal: AgableMob
 	bool_t isInLove() const;
 	void resetLove();
 
-	virtual ~Animal();
+	virtual ~Animal() {
+	}
 	virtual bool_t interactWithPlayer(Player*);
 	virtual bool_t hurt(Entity*, int32_t);
 	virtual int32_t getCreatureBaseType();

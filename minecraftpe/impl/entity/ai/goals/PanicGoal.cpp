@@ -9,8 +9,6 @@ PanicGoal::PanicGoal(PathfinderMob* a2, float a3) {
 	this->setRequiredControlFlags(1);
 }
 
-PanicGoal::~PanicGoal() {
-}
 bool_t PanicGoal::canUse() {
 	if(!this->holder->getLastHurtByMob()) {
 		return 0;

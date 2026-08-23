@@ -107,6 +107,3 @@ void MeleeAttackGoal::tick() {
 		v16->doHurtTarget(this->target.lock());
 	}
 }
-void MeleeAttackGoal::setLevel(Level* l  ) {
-	this->level = l;
-}

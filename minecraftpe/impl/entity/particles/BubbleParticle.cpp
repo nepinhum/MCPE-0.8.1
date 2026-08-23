@@ -2,7 +2,7 @@
 #include <math/Mth.hpp>
 #include <level/Level.hpp>
 #include <tile/material/Material.hpp>
-BubbleParticle::BubbleParticle(Level* level, ParticleType pt, const std::string& a2);
+
 BubbleParticle::~BubbleParticle() {
 }
 void BubbleParticle::tick() {

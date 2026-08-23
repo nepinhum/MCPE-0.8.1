@@ -10,7 +10,7 @@ struct OptionsGroup: GuiElementContainer
 	void addLoginItem(Minecraft*);
 	void createTextBox(const Options::Option*, Minecraft*);
 
-	virtual ~OptionsGroup();
+	virtual ~OptionsGroup(){}
 	virtual void render(Minecraft*, int32_t, int32_t);
 	virtual void setupPositions();
 	virtual OptionsGroup* addOptionItem(const Options::Option*, Minecraft*);

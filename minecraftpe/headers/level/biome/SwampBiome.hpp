@@ -2,6 +2,6 @@
 #include <level/biome/Biome.hpp>
 
 struct SwampBiome : public Biome{
-	SwampBiome();
-	virtual ~SwampBiome();
+	SwampBiome(){}
+	virtual ~SwampBiome(){}
 };

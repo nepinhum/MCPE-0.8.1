@@ -37,7 +37,9 @@ struct OptionsScreen: Screen
 	virtual bool_t handleBackEvent(bool_t);
 	virtual void tick();
 	virtual void removed();
-	virtual bool_t renderGameBehind();
+	virtual bool_t renderGameBehind(){
+		return 1;
+	}
 	virtual void setTextboxText(const std::string&);
 	virtual void buttonClicked(Button*);
 	virtual void mouseClicked(int32_t, int32_t, int32_t);

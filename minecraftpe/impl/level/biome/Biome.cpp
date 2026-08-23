@@ -39,18 +39,12 @@ Biome::MobSpawnerData::MobSpawnerData(int32_t rarity, int32_t mobtype, int32_t m
 	this->max = max;
 }
 
-Biome::~Biome(void){
-	if(this->biomeName) delete this->biomeName;
-}
 Feature* Biome::getTreeFeature(Random* rand){
 	rand->genrand_int32(); //must be here
 	return new TreeFeature(0, 0);
 }
 Feature* Biome::getGrassFeature(Random* rand){
 	return new TallgrassFeature(Tile::tallgrass->blockID, 1);
-}
-float Biome::getTemperature(void){
-	return this->temperature;
 }
 float Biome::adjustScale(float f){
 	return f;

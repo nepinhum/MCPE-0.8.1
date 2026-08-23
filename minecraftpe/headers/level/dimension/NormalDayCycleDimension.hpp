@@ -6,6 +6,6 @@ struct NormalDayCycleDimension : Dimension{
 	char align, align2, align3;
 
 
-	virtual ~NormalDayCycleDimension();
-	virtual float getTimeOfDay(int32_t, float); //long
+	virtual ~NormalDayCycleDimension(){}
+	virtual float getTimeOfDay(long, float); //long
 };

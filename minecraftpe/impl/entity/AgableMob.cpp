@@ -23,17 +23,6 @@ void AgableMob::setAge(int32_t age) {
 	}
 	this->age = age;
 }
-
-AgableMob::~AgableMob() {
-}
-float AgableMob::getShadowRadius() {
-	float v3 = this->entityWidth * 0.8;
-	float v4 = 0.5;
-	if(!this->isBaby()) {
-		v4 = 1.0;
-	}
-	return v3 * v4;
-}
 void AgableMob::readAdditionalSaveData(CompoundTag* a2) {
 	Mob::readAdditionalSaveData(a2);
 	this->setAge(a2->getInt("Age"));

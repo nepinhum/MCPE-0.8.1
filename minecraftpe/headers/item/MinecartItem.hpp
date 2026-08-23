@@ -7,6 +7,6 @@ struct MinecartItem: Item
 
 	MinecartItem(int32_t, int32_t);
 
-	virtual ~MinecartItem();
+	virtual ~MinecartItem(){}
 	virtual bool_t useOn(ItemInstance*, Player*, struct Level*, int32_t, int32_t, int32_t, int32_t, float, float, float);
 };

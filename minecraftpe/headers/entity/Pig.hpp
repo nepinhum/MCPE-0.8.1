@@ -7,10 +7,13 @@ struct Pig: Animal
 	bool_t hasSaddle();
 	void setSaddle(bool_t);
 
-	virtual ~Pig();
+	virtual ~Pig() {
+	}
 	virtual bool_t interactWithPlayer(Player*);
 	virtual int32_t getEntityTypeId() const;
-	virtual float getBaseSpeed();
+	virtual float getBaseSpeed() {
+		return 0.25;
+	}
 	virtual int32_t getMaxHealth();
 	virtual bool_t canBeControlledByRider();
 	virtual int32_t getDeathLoot();

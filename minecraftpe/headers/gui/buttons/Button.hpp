@@ -21,7 +21,7 @@ struct Button : GuiElement{
 	void setMsg(const std::string&);
 	void setOverrideScreenRendering(bool_t);
 
-	virtual ~Button();
+	virtual ~Button(){}
 	virtual void render(struct Minecraft*, int32_t, int32_t);
 	virtual bool_t clicked(struct Minecraft*, int32_t, int32_t);
 	virtual void released(int32_t, int32_t);

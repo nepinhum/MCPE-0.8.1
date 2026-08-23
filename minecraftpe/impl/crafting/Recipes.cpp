@@ -25,29 +25,6 @@ Recipes::Shape::Shape(const std::string& a2, const std::string& a3, const std::s
 	this->shape.push_back(a4);
 }
 
-Recipes::Type::Type(const Recipes::Type& a2)
-	: itemInstance(a2.itemInstance) {
-	this->item = a2.item;
-	this->tile = a2.tile;
-	this->chr = a2.chr;
-}
-Recipes::Type::Type(char_t a2, Item* a3) {
-	this->item = a3;
-	this->tile = 0;
-	this->chr = a2;
-}
-Recipes::Type::Type(char_t a2, const ItemInstance& a3)
-	: itemInstance(a3) {
-	this->item = 0;
-	this->tile = 0;
-	this->chr = a2;
-}
-Recipes::Type::Type(char_t a2, Tile* a3) {
-	this->tile = a3;
-	this->item = 0;
-	this->chr = a2;
-}
-
 Recipes* Recipes::instance = 0;
 
 Recipes::Recipes() {

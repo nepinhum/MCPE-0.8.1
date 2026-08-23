@@ -28,6 +28,8 @@ struct PauseScreen: Screen
 	virtual void init();
 	virtual void setupPositions();
 	virtual void tick();
-	virtual bool_t renderGameBehind();
+	virtual bool_t renderGameBehind() {
+		return 1;
+	}
 	virtual void buttonClicked(Button*);
 };

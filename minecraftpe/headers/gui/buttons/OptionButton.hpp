@@ -18,7 +18,7 @@ struct OptionButton: ImageButton
 	void toggle(Options*);
 	void updateImage(Options*);
 
-	virtual ~OptionButton();
+	virtual ~OptionButton(){}
 	virtual void mouseClicked(Minecraft*, int32_t, int32_t, int32_t);
 	virtual bool_t isSecondImage(bool_t);
 };

@@ -30,8 +30,6 @@ int32_t PigZombie::alert(Entity* a2) {
 	return r;
 }
 
-PigZombie::~PigZombie() {
-}
 void PigZombie::tick() {
 	int32_t v2;	  // r3
 	int32_t v3;	  // r3
@@ -103,9 +101,6 @@ void PigZombie::addAdditonalSaveData(CompoundTag* a2) {
 static std::string _tex = "mob/pigzombie.png";
 std::string* PigZombie::getTexture() {
 	return &_tex;
-}
-float PigZombie::getBaseSpeed() {
-	return 0.25;
 }
 bool_t PigZombie::canSpawn() {
 	Level* level; // r0

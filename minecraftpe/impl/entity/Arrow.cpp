@@ -149,9 +149,6 @@ void Arrow::shoot(float x, float y, float z, float a5, float a6) {
 	this->pitch = v21 * 57.296;
 	this->prevPitch = v21 * 57.296;
 }
-
-Arrow::~Arrow() {
-}
 void Arrow::lerpMotion(float x, float y, float z) {
 	float v8;	// r7
 	float v9;	// r0
@@ -515,10 +512,6 @@ void Arrow::tick() {
 		this->motionY = (float)(v79 * v83) - 0.05;
 		this->setPos(v85, v86, this->posZ);
 	}
-}
-float Arrow::getShadowRadius() {
-	if(this->inGround) return 0;
-	else return 0.1;
 }
 float Arrow::getShadowHeightOffs() {
 	return 0;

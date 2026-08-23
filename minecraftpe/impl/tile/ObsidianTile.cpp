@@ -57,17 +57,8 @@ void ObsidianTile::poofParticles(Level* level, int32_t x, int32_t y, int32_t z) 
 		}
 	}
 }
-
-ObsidianTile::~ObsidianTile() {
-}
 void ObsidianTile::animateTick(Level* level, int32_t x, int32_t y, int32_t z, Random*) {
 	if(this->glowing) {
 		this->poofParticles(level, x, y, z);
 	}
-}
-int32_t ObsidianTile::getResource(int32_t, Random*) {
-	return Tile::obsidian->blockID;
-}
-int32_t ObsidianTile::getResourceCount(Random*) {
-	return 1;
 }

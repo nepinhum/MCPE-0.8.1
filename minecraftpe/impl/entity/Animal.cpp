@@ -27,8 +27,6 @@ void Animal::resetLove() {
 	this->inLove = 0;
 }
 
-Animal::~Animal() {
-}
 bool_t Animal::interactWithPlayer(Player* a2) {
 	ItemInstance* sel; // r5
 	int32_t v5;		   // r6

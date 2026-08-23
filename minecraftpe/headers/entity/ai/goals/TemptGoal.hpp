@@ -23,7 +23,8 @@ struct TemptGoal: Goal
 	TemptGoal(PathfinderMob*, float, std::initializer_list<int32_t>, bool_t);
 	bool_t isRunning();
 
-	virtual ~TemptGoal();
+	virtual ~TemptGoal() {
+	}
 	virtual bool_t canUse();
 	virtual bool_t canContinueToUse();
 	virtual void start();

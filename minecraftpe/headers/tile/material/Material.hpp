@@ -18,15 +18,38 @@ struct Material{
 	static void initMaterials(void);
 	static void teardownMaterials(void);
 
-	virtual bool_t isLiquid(void) const;
-	virtual bool_t letsWaterThrough(void) const;
-	virtual bool_t isSolid(void) const;
-	virtual bool_t blocksLight(void) const;
-	virtual bool_t isSolidBlocking(void) const;
-	virtual bool_t isAlwaysDestroyable(void) const;
-	virtual bool_t blocksMotion(void) const;
-	virtual bool_t isFlammable(void) const;
-	virtual bool_t isReplaceable(void) const;
+	virtual bool_t isLiquid(void) const{
+		return 0;
+	}
+	virtual bool_t letsWaterThrough(void) const{
+		if(this->isLiquid()) return 0;
+		return !this->isSolid();
+	}
+	virtual bool_t isSolid(void) const{
+		return 1;
+	}
+	virtual bool_t blocksLight(void) const{
+		return 1;
+	}
+	virtual bool_t isSolidBlocking(void) const{
+		if(this->translucent) return 0;
+		return this->blocksMotion();
+	}
+	virtual bool_t isAlwaysDestroyable(void) const {
+		return this->alwaysDestroyable;
+	}
+	virtual bool_t blocksMotion(void) const{
+		return 1;
+	}
+	virtual bool_t isFlammable(void) const{
+		return this->flammable;
+	}
+	virtual bool_t isReplaceable(void) const{
+		return this->replaceable;
+	}
 
-	Material(void);
+	Material(void){
+		this->alwaysDestroyable = 1;
+		this->flammable = this->translucent = this->replaceable = 0;
+	}
 };

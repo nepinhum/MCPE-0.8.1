@@ -14,9 +14,18 @@ struct MeshBuffer{
 		uint8_t stride;
 		char align, align1, align2; //TODO this struct is not aligned?
 
-		VertexFormat(void);
+		VertexFormat(void){
+			this->stride = 0;
+			for(int32_t i = 0; i < 4; ++i) this->offsets[i] = -1;
+		}
 		void bindArrays(void) const;
-		void enableField(MeshBuffer::VertexFormat::Field);
+		void enableField(MeshBuffer::VertexFormat::Field f){
+			static int32_t FieldSize[] = {0xC, 0x8, 0x4, 0x4};
+			if(this->offsets[f] == 255){
+				this->offsets[f] = stride;
+				this->stride += FieldSize[f];
+			}
+		}
 	};
 	int32_t arrayBuffer;
 	int32_t arrayElementsBuffer;

@@ -128,10 +128,6 @@ std::string SynchedEntityData::getString(int32_t a2) {
 	}
 	return ((DataItem2<std::string>*)v->second)->value;
 }
-void SynchedEntityData::markDirty(int32_t a2) {
-	this->data[a2]->dirty = 1;
-	this->isDirty = 1;
-}
 void SynchedEntityData::pack(std::vector<DataItem*>* a1, IDataOutput* a2) {
 	if(a1) {
 		for(auto&& v: *a1) {

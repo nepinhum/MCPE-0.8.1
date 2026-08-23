@@ -7,9 +7,6 @@ ImprovedNoise::ImprovedNoise(void){
 	Random v2(1);
 	this->init(&v2);
 }
-ImprovedNoise::~ImprovedNoise(void){
-
-}
 void ImprovedNoise::init(Random* a2){
 	float xFloat, yFloat, zFloat;
 	int32_t index;

@@ -9,17 +9,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-AppPlatform::Listener::~Listener(){
-
-}
-
-bool_t AppPlatform::Listener::onLowMemory(void){
-	return 0;
-}
-void AppPlatform::Listener::onAppResumed(void){}
-void AppPlatform::Listener::onAppFocusLost(void){}
-void AppPlatform::Listener::onAppFocusGained(void){}
-
 AppPlatform* AppPlatform::_singleton;
 int32_t AppPlatform::TEXTURE_MAX_LEVEL;
 GLfloat AppPlatform::ANISOTROPIC_MAX_LEVEL;
@@ -58,11 +47,6 @@ AppPlatform::AppPlatform(void){
 	if(anisotropicFilter) glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &AppPlatform::ANISOTROPIC_MAX_LEVEL);
 #endif
 }
-
-AppPlatform::~AppPlatform(void){
-
-}
-void AppPlatform::saveScreenshot(const std::string&, int32_t, int32_t){}
 void AppPlatform::loadTGA(ImageData& data, const std::string& path, bool_t a4){
 	int32_t v6;
 	v6 = a4;
@@ -71,127 +55,11 @@ void AppPlatform::loadTGA(ImageData& data, const std::string& path, bool_t a4){
 	data.pixels = pxls;
 
 }
-void AppPlatform::playSound(const std::string&, float, float){
 
-}
-void AppPlatform::showDialog(int32_t){
-
-}
-void AppPlatform::createUserInput(void){
-
-}
-int32_t AppPlatform::getUserInputStatus(void){
-	return 0;
-}
-std::vector<std::string> AppPlatform::getUserInput(void){
-	return {};
-}
-std::string AppPlatform::getDateString(int32_t){
-	return ""; //nullstr
-}
-int32_t AppPlatform::checkLicense(void){
-	return 0;
-}
-bool_t AppPlatform::hasBuyButtonWhenInvalidLicense(void){
-	return 0;
-}
-void AppPlatform::uploadPlatformDependentData(int32_t, void*){
-
-}
-AssetFile AppPlatform::readAssetFile(const std::string& path){
-	FILE* f = fopen(path.c_str(), "rb");
-	if(f){
-		int32_t size = getRemainingFileSize(f);
-		uint8_t* arr = new uint8_t[size];
-		fread(arr, 1, size, f);
-		fclose(f);
-		return AssetFile(arr, size);
-	}else{
-		return AssetFile(0, -1);
-	}
-}
-void AppPlatform::_tick(void){
-
-}
-int32_t AppPlatform::getScreenWidth(void){
-	return 854;
-}
-int32_t AppPlatform::getScreenHeight(void){
-	return 480;
-}
-float AppPlatform::getPixelsPerMillimeter(void){
-	return 10.0f;
-}
-bool_t AppPlatform::isNetworkEnabled(bool_t){
-	return 1;
-}
-void AppPlatform::openLoginWindow(void){
-
-}
-bool_t AppPlatform::isPowerVR(void){
-	return 0;
-}
-int32_t AppPlatform::getKeyFromKeyCode(int32_t, int32_t, int32_t){
-	return 0;
-}
-void AppPlatform::buyGame(void){
-
-}
-void AppPlatform::finish(void){
-
-}
-bool AppPlatform::supportsTouchscreen(void){
-	return 1;
-}
-bool_t AppPlatform::hasIDEProfiler(void){
-	return 0;
-}
-bool_t AppPlatform::supportsVibration(void){
-	return 1;
-}
-void AppPlatform::vibrate(int32_t){
-
-}
-std::string AppPlatform::getPlatformStringVar(int32_t){
-	return "<getPlatformStringVar NotImplemented>"; //this is actual return value
-}
 void AppPlatform::showKeyboard(std::string*, int32_t, bool_t){
 	this->keyboardShown = 1;
 }
-void AppPlatform::hideKeyboard(void){
-	this->keyboardShown = 0;
-}
-void AppPlatform::updateTextBoxText(const std::string&){
 
-}
-bool_t AppPlatform::isKeyboardVisible(void){
-	return this->keyboardShown;
-}
-LoginInformation AppPlatform::getLoginInformation(void){
-	return LoginInformation();
-}
-void AppPlatform::setLoginInformation(const LoginInformation&){
-
-}
-void AppPlatform::clearSessionIDAndRefreshToken(void){
-
-}
-void AppPlatform::statsTrackData(const std::string&, const std::string&){
-
-}
-void AppPlatform::updateStatsUserData(const std::string&, const std::string&){
-
-}
-
-void AppPlatform::_fireAppSuspended(void){
-	for(auto& a: this->listeners) {
-		a.second->onAppSuspended();
-	}
-}
-void AppPlatform::createUserInput(int32_t i){
-	 this->showDialog(i);
-	this->createUserInput();
-}
 int32_t AppPlatform::getPreloadingHTMLLength(void){
 	return strlen(AppPlatform::preloadingHTML);
 }
@@ -250,15 +118,4 @@ TextureData AppPlatform::loadTexture(const std::string& a3, bool_t a4){
 	}
 
 	return data;
-}
-void AppPlatform::removeListener(AppPlatform::Listener* a2) {
-	for(auto&& p = this->listeners.begin(); p != this->listeners.end(); ++p) { //TODO check
-		if(p->second == a2) {
-			this->listeners.erase(p);
-			break;
-		}
-	}
-}
-void AppPlatform::addListener(AppPlatform::Listener* a2, float a3) {
-	this->listeners.insert({a3, a2}); //TODO check
 }

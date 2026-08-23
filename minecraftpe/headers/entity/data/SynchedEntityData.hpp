@@ -39,7 +39,10 @@ struct SynchedEntityData{
 	Pos getPos(int32_t);
 	int16_t getShort(int32_t);
 	std::string getString(int32_t);
-	void markDirty(int32_t);
+	void markDirty(int32_t a2) {
+		this->data[a2]->dirty = 1;
+		this->isDirty = 1;
+	}
 	static void pack(std::vector<DataItem*>*, IDataOutput*);
 	void packAll(IDataOutput*) const;
 	std::vector<DataItem*> packDirty();

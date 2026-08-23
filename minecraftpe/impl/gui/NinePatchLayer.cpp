@@ -73,10 +73,6 @@ NinePatchLayer* NinePatchLayer::setExcluded(int32_t a2){
 	return this;
 }
 
-NinePatchLayer::~NinePatchLayer(){
-
-}
-
 void NinePatchLayer::buildQuad(int32_t n){
 	NinePatchLayer::CachedQuad* cq = &this->cachedQuads[n];
 	int32_t v4 = n/3;

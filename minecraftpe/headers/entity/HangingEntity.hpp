@@ -13,7 +13,7 @@ struct HangingEntity: Entity
 	void setDir(int32_t);
 	void setPosition(int32_t, int32_t, int32_t);
 
-	virtual ~HangingEntity();
+	virtual ~HangingEntity(){}
 	virtual void move(float, float, float);
 	virtual void tick();
 	float getBrightness(float);

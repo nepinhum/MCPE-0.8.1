@@ -16,7 +16,7 @@ struct LookAtPlayerGoal: Goal
 	LookAtPlayerGoal(Mob*, float);
 	LookAtPlayerGoal(Mob*, float, float);
 
-	virtual ~LookAtPlayerGoal();
+	virtual ~LookAtPlayerGoal(){}
 	virtual bool_t canUse();
 	virtual bool_t canContinueToUse();
 	virtual void start();

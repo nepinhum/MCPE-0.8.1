@@ -92,8 +92,6 @@ LABEL_6:
 	return this->isSameRailWithPower(level, v8, v11, v12, a7, a8, v13) || v14 && this->isSameRailWithPower(level, v8, v11 - 1, v12, a7, a8, v13);
 }
 
-PoweredRailTile::~PoweredRailTile() {
-}
 TextureUVCoordinateSet* PoweredRailTile::getTexture(int32_t) {
 	return &this->poweredRailTexture;
 }

@@ -9,7 +9,7 @@ struct HumanoidMobRenderer: MobRenderer
 	HumanoidMobRenderer(HumanoidModel*, float);
 	void renderHand();
 
-	virtual ~HumanoidMobRenderer();
+	virtual ~HumanoidMobRenderer(){}
 	virtual void render(Entity*, float, float, float, float, float);
 	virtual void additionalRendering(Mob*, float);
 };

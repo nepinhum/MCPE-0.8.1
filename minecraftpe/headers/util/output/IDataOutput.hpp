@@ -3,7 +3,7 @@
 #include <string>
 
 struct IDataOutput{
-	virtual ~IDataOutput();
+	virtual ~IDataOutput(){}
 	virtual void writeString(const std::string&) = 0;
 	virtual void writeFloat(float) = 0;
 	virtual void writeDouble(double) = 0;

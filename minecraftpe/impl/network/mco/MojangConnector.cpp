@@ -150,5 +150,3 @@ std::string MojangConnector::urlEncode(std::string a2) {
 	printf("MojangConnector::urlEncode(%s) - not implemented\n", a2.c_str()); //TODO
 	return "";
 }
-MojangConnector::~MojangConnector() {
-}

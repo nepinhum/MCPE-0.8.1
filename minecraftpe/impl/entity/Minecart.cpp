@@ -561,8 +561,6 @@ void Minecart::setHurtTime(int32_t a2) {
 	this->synchedEntityData.set(17, a2);
 }
 
-Minecart::~Minecart() {
-}
 void Minecart::remove() {
 	Entity::remove();
 }

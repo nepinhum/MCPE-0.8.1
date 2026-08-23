@@ -1,9 +1,12 @@
 #pragma once
-#include <_types.h>
+#include <nbt/Tag.hpp>
 
-struct Tag;
 struct IDataInput;
-
 struct NbtIo{
-	static Tag* read(IDataInput*);
+	static Tag* read(IDataInput* in){
+		Tag* tag;
+		tag = Tag::readNamedTag(in);
+		if(!tag || tag->getId() != 10) return 0; //XXX wat
+		return tag;
+	}
 };

@@ -8,8 +8,6 @@ ClothTileItem::ClothTileItem(int32_t id)
 	this->setMaxDamage(0);
 	this->setStackedByData(1);
 }
-ClothTileItem::~ClothTileItem() {
-}
 TextureUVCoordinateSet* ClothTileItem::getIcon(int32_t a2, int32_t, bool_t) {
 	return Tile::cloth->getTexture(2, a2);
 }

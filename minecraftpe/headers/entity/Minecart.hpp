@@ -42,7 +42,7 @@ struct Minecart: Entity
 	void setHurtDir(int32_t);
 	void setHurtTime(int32_t);
 
-	virtual ~Minecart();
+	virtual ~Minecart(){}
 	virtual void remove();
 	virtual void lerpTo(float, float, float, float, float, int32_t);
 	virtual void lerpMotion(float, float, float);

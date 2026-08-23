@@ -9,7 +9,7 @@ struct PigZombie: Zombie
 	PigZombie(Level*);
 	int32_t alert(Entity*);
 
-	virtual ~PigZombie();
+	virtual ~PigZombie(){}
 	virtual void tick();
 	virtual bool_t interactWithPlayer(Player*);
 	virtual bool_t hurt(Entity*, int32_t);
@@ -17,7 +17,9 @@ struct PigZombie: Zombie
 	virtual void readAdditionalSaveData(CompoundTag*);
 	virtual void addAdditonalSaveData(CompoundTag*);
 	virtual std::string* getTexture();
-	virtual float getBaseSpeed();
+	virtual float getBaseSpeed() {
+		return 0.25;
+	}
 	virtual bool_t canSpawn();
 	virtual ItemInstance* getCarriedItem();
 	virtual int32_t getDeathLoot();

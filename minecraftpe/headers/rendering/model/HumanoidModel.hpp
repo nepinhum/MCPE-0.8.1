@@ -13,7 +13,7 @@ struct HumanoidModel: Model
 
 	HumanoidModel(float, float);
 
-	virtual ~HumanoidModel();
+	virtual ~HumanoidModel(){}
 	virtual void render(Entity*, float, float, float, float, float, float);
 	virtual void renderHorrible(float, float, float, float, float, float);
 	virtual void setupAnim(float, float, float, float, float, float);

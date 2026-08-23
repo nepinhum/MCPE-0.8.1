@@ -11,7 +11,7 @@ struct RandomStrollGoal: Goal
 
 	RandomStrollGoal(PathfinderMob*, float);
 
-	virtual ~RandomStrollGoal();
+	virtual ~RandomStrollGoal(){}
 	virtual bool_t canUse();
 	virtual bool_t canContinueToUse();
 	virtual void start();

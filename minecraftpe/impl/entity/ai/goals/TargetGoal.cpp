@@ -28,8 +28,6 @@ bool_t TargetGoal::canAttack(Mob* a2, bool_t a3) {
 	return 0;
 }
 
-TargetGoal::~TargetGoal() {
-}
 bool_t TargetGoal::canContinueToUse() {
 	Entity* v2;		  // r0
 	Entity* v3;		  // r5

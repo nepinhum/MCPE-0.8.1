@@ -25,10 +25,6 @@ int32_t Color4::toARGB(void){
 	return ret.n;
 }
 
-Color4 Color4::lerp(const Color4& a2, const Color4& a3, float a4){
-	return Color4((a4 * a3.r) + ((float)(1.0 - a4) * a2.r), (a4 * a3.g) + ((float)(1.0 - a4) * a2.g), (a4 * a3.b) + ((float)(1.0 - a4) * a2.b), (a4 * a3.a) + ((float)(1.0 - a4) * a2.a));
-}
-
 Color4 Color4::fromHSB(float h, float s, float b){
 	float v7, v8, v9, v10, v11, g, v13, a;
 
@@ -56,18 +52,4 @@ Color4 Color4::fromHSB(float h, float s, float b){
 		}
 	}
 	return Color4(b, b, b, 1.0f);
-}
-
-void Color4::clamp(void){
-	if(this->a > 1.0) this->a = 1.0;
-	else if(this->a <= 0.0) this->a = 0.0;
-
-	if(this->r > 1.0) this->r = 1.0;
-	else if(this->r <= 0.0) this->r = 0.0;
-
-	if(this->g > 1.0) this->g = 1.0;
-	else if(this->g <= 0.0) this->g = 0.0;
-
-	if(this->b > 1.0) this->b = 1.0;
-	else if(this->b <= 0.0) this->b = 0.0;
 }
