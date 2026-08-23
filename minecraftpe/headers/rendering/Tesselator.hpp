@@ -1,7 +1,6 @@
 #pragma once
 #include <_types.h>
-#include <glm/detail/type_mat4x4.hpp>
-#include <glm/common.hpp>
+#include <glm/glm.hpp>
 #include <rendering/MeshBuffer.hpp>
 #include <vector>
 #include <math/Vec3.hpp>
@@ -50,7 +49,7 @@ struct Tesselator{
 	int8_t field_91;
 	int8_t field_92;
 	int8_t field_93;
-	glm::tmat4x4<float> tmat4x4_2;
+	glm::mat4x4 tmat4x4_2;
 	uint8_t field_D4;
 	int8_t isColorDisabled;
 	uint8_t field_D6;

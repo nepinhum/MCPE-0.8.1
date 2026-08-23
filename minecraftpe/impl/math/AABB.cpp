@@ -1,12 +1,10 @@
 #include <math/AABB.hpp>
 
 float AABB::clipXCollide(const AABB& a2, float a3) {
-	float v3;	// s14
 	float v4;	// s15
 	float maxX; // s15
 	float v6;	// s13
 
-	v3 = a3;
 	if(a2.maxY > this->minY && a2.minY < this->maxY && a2.maxZ > this->minZ && a2.minZ < this->maxZ) {
 		if(a3 <= 0.0 || (maxX = a2.maxX, maxX > this->minX) || (v4 = this->minX - maxX, v4 >= a3)) {
 			v4 = a3;
@@ -19,7 +17,7 @@ float AABB::clipXCollide(const AABB& a2, float a3) {
 		}
 		return v4;
 	}
-	return v3;
+	return a3;
 }
 float AABB::clipYCollide(const AABB& a2, float a3) {
 	float v3;	// s14

@@ -8,7 +8,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=protected -fvisibility-inlines-
 
 project(minecraftpe08decomp)
 set (CMAKE_CXX_STANDARD 11)
-include_directories(stb)
 include_directories(glm)
 include_directories(OpenAES/inc/)
 include_directories(RakNet/Source/)

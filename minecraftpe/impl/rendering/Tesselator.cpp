@@ -58,7 +58,7 @@ Tesselator::Tesselator(int32_t size)
 	//--->
 	//probably Mojang used some commit before https://github.com/g-truc/glm/commit/2b747cbbadfd3af39b443e88902f1c98bd231083
 	//with flag -DGLM_FORCE_RADIANS in their build
-	this->tmat4x4_2 = glm::rotate<float>(glm::tmat4x4<float>(1.0), 210.0*0.017453, glm::vec3(1, 0, 0));
+	this->tmat4x4_2 = glm::rotate<float>(glm::mat4x4(1.0), 210.0*0.017453, glm::vec3(1, 0, 0));
 	this->tmat4x4_2 = glm::rotate<float>(this->tmat4x4_2, 45.0*0.017453, glm::vec3(0, 1, 0));
 }
 
@@ -435,7 +435,7 @@ void Tesselator::vertex(float x, float y, float z) {
 		if(this->currentVertexPointers.hasTexture) this->currentVertexPointers.hasTexture += v19->stride;
 	}
 
-	glm::tvec4<float> v20(x, y, z, 1.0f);
+	glm::vec4 v20(x, y, z, 1.0f);
 	if(this->isTilted) {
 		v20 = this->tmat4x4_2 * v20;
 		x = v20[0];

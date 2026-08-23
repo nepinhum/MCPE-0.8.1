@@ -5,8 +5,8 @@
 #include <network/mco/LoginInformation.hpp>
 #include <util/Util.hpp>
 #include <algorithm>
+#include <string.h>
 
-#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 AppPlatform* AppPlatform::_singleton;

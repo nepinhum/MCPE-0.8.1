@@ -49,7 +49,7 @@ Gui::Gui(Minecraft* mc) {
 	this->field_A84 = -1;
 	this->tipTimeLeft = 0;
 	this->field_A94 = 0;
-	AppPlatform::_singleton->listeners.emplace(1.0f, this);
+	AppPlatform::_singleton->listeners.insert({1.0f, this});
 }
 
 Gui::~Gui() {
