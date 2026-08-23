@@ -1,5 +1,6 @@
 #pragma once
 #ifdef __WIN32__
+#ifndef FORCEOPENAL
 #include <_types.h>
 #include <dsound.h>
 #include <sound/SoundSystem.hpp>
@@ -26,4 +27,5 @@ struct SoundSystemDirectSound: public SoundSystem
 	virtual void stop(const std::string&);
 	virtual void playAt(const struct SoundDesc&, float, float, float, float, float);
 };
+#endif
 #endif

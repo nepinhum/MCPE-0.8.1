@@ -1,4 +1,5 @@
 #ifdef __WIN32__
+#ifndef FORCEOPENAL
 #include <sound/SoundSystemDirectSound.hpp>
 #include <sound/SoundDesc.hpp>
 #include <math.h>
@@ -133,4 +134,5 @@ void SoundSystemDirectSound::playAt(const struct SoundDesc& a2, float a3, float 
 		}
 	}
 }
+#endif
 #endif

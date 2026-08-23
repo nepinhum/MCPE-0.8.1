@@ -1,4 +1,5 @@
-#if defined(__linux__) and not defined(ANDROID)
+#ifndef ANDROID
+#ifdef USEOPENAL
 #include <sound/SoundSystemAL.hpp>
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -130,4 +131,5 @@ void SoundSystemAL::playAt(const struct SoundDesc& a2, float a3, float a4, float
 		}
 	}
 }
+#endif
 #endif

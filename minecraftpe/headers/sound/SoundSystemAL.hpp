@@ -1,5 +1,7 @@
 #pragma once
-#if defined(__linux__) and not defined(ANDROID)
+
+#ifndef ANDROID
+#ifdef USEOPENAL
 #include <_types.h>
 #include <sound/SoundSystem.hpp>
 
@@ -27,4 +29,5 @@ struct SoundSystemAL: public SoundSystem
 	virtual void stop(const std::string&);
 	virtual void playAt(const struct SoundDesc&, float, float, float, float, float);
 };
+#endif
 #endif

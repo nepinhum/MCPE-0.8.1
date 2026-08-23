@@ -32,7 +32,7 @@ TextureUVCoordinateSet* RotatedPillarTile::getTexture(int32_t a2, int32_t a3) {
 	}
 	return this->getDirTexture(5, a3);
 }
-int8_t byte_D6753BF4[] = {8, 8, 4, 4};
+static int8_t byte_D6753BF4[] = {8, 8, 4, 4};
 int32_t RotatedPillarTile::getPlacementDataValue(Level* level, int32_t x, int32_t y, int32_t z, int32_t a6, float a7, float a8, float a9, Mob* a10, int32_t a11) {
 	int32_t v11; // r3
 
