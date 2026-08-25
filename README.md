@@ -33,10 +33,11 @@ Windows version does not require OpenAL(it uses DirectSound instead). See [.gith
 There are prebuilt versions available in github actions(they are probably getting autoremoved every 3 months, so should probably move them later into releases<?>). The prebuilt versions do not contain assets or sounds, so you have to extract them yourself. Use `python tools/pcm2wav.py <path/to/libminecraftpe.so>` to extract sounds from `libminecraftpe.so` into `sounds` folder and move it to the same directory where `assets` and executable file is located.
 
 ## Some additional info:
-* JSON library that was probably used by Mojang: https://chromium.googlesource.com/external/jsoncpp/+/6921bf1feef6f1fb83935ae3943f07753488311d/jsoncpp
-* RakNet: https://web.archive.org/web/20260101222408if_/http://www.raknet.com/raknet/downloads/RakNet_PC-4.036.zip (might be some other version, probably modifed by mojang in 0.1.x)
-* GZIP stuff - zlib 1.2.3, based on https://zlib.net/zpipe.c
-* https://github.com/nothings/stb/
-* GLM - commit before https://github.com/g-truc/glm/commit/2b747cbbadfd3af39b443e88902f1c98bd231083 and -DGLM_FORCE_RADIANS <?>
-* OpenAES - used for realms stuff
+* Original APK used ndk r8d(first with gcc 4.7 toolchain needed for c++11) or r8e(last version that doesnt include fix for http://code.google.com/p/android/issues/detail?id=41755)
+* JSON library that was probably used by Mojang: https://chromium.googlesource.com/external/jsoncpp/+/6921bf1feef6f1fb83935ae3943f07753488311d/jsoncpp <check commit later>
+* RakNet: https://web.archive.org/web/20260101222408if_/http://www.raknet.com/raknet/downloads/RakNet_PC-4.036.zip (might be some other version, modified by mojang)
+* GZIP stuff - zlib 1.2.3(bundled with android by default?), based on https://zlib.net/zpipe.c
+* STB - https://web.archive.org/web/20131009042610/http://nothings.org/stb_image.c
+* GLM - 0.9.4.6, https://github.com/g-truc/glm/commit/15b19a10be774975aee34c1cb277178999261e5f <?>(might be older, this is the latest release that was possibly used by mojang(0.9.5.0 brach contains commits after 0.8.1 release date))
+* OpenAES - probably 0.7.0 - 0.8.1 (the only difference between them is in cmd version, 0.6.0 contains methods that are not present in original)
 
