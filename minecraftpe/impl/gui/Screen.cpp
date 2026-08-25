@@ -179,40 +179,25 @@ void Screen::renderMenuBackground(float a2){
 		glRotatef(Mth::sin((float)(a2+dword_D6E05C20) / 400) + 20, 1, 0, 0);
 		glRotatef(-(float)((float)(a2+dword_D6E05C20) * 0.1), 0.0, 1.0, 0.0);
 		for(int v8 = 0; v8 != 6; ++v8){
-			float v9, v10, v11;
 			glPushMatrix();
 			switch(v8){
 				case 1:
-					v9 = 90;
-					v10 = 0;
-					v11 = 1;
+					glRotatef(90, 0, 1, 0);
 					break;
 				case 2:
-					v9 = 180;
-					v10 = 0;
-					v11 = 1;
+					glRotatef(180, 0, 1, 0);
 					break;
 				case 3:
-					v9 = -90;
-					v10 = 0;
-					v11 = 1;
+					glRotatef(-90, 0, 1, 0);
 					break;
 				case 4:
-					v9 = 90;
-					v11 = 0;
-					v10 = 1;
+					glRotatef(-90, 1, 0, 0);
 					break;
 				case 5:
-					v9 = -90;
-					v11 = 0;
-					v10 = 1;
+					glRotatef(90, 1, 0, 0);
 					break;
-				default:
-					goto DONT_ROTATE;
 			}
 
-			glRotatef(v9, v10, v11, 0.0);
-			DONT_ROTATE:
 			char_t* texture = panorama_images[v8];
 			this->minecraft->texturesPtr->loadAndBindTexture(texture);
 			Tesselator::instance.begin(4);
