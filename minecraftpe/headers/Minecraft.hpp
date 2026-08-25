@@ -26,7 +26,6 @@ struct Minecraft : App{
 	struct SoundEngine* soundEngine;
 	struct GameMode* gameMode;
 	std::shared_ptr<struct MojangConnector> mojangConnector;
-	int32_t field_188;
 	struct Textures* texturesPtr;
 	int8_t field_190, field_191, field_192, field_193;
 	ScreenChooser screenChooser;

@@ -176,30 +176,18 @@ void Screen::renderMenuBackground(float a2){
 		glLoadIdentity();
 		glColor4f(1.0, 1.0, 1.0, 1.0);
 		glRotatef(180.0, 1.0, 0.0, 0.0);
-		glRotatef(Mth::sin((float)(a2+dword_D6E05C20) / 400) + 20, 1, 0, 0);
+		glRotatef(Mth::sin((float)(a2+dword_D6E05C20) / 400)*25 + 20, 1, 0, 0);
 		glRotatef(-(float)((float)(a2+dword_D6E05C20) * 0.1), 0.0, 1.0, 0.0);
 		for(int v8 = 0; v8 != 6; ++v8){
 			glPushMatrix();
-			switch(v8){
-				case 1:
-					glRotatef(90, 0, 1, 0);
-					break;
-				case 2:
-					glRotatef(180, 0, 1, 0);
-					break;
-				case 3:
-					glRotatef(-90, 0, 1, 0);
-					break;
-				case 4:
-					glRotatef(-90, 1, 0, 0);
-					break;
-				case 5:
-					glRotatef(90, 1, 0, 0);
-					break;
-			}
 
-			char_t* texture = panorama_images[v8];
-			this->minecraft->texturesPtr->loadAndBindTexture(texture);
+			if(v8 == 1) glRotatef(90, 0, 1, 0);
+			if(v8 == 2) glRotatef(180, 0, 1, 0);
+			if(v8 == 3) glRotatef(-90, 0, 1, 0);
+			if(v8 == 4) glRotatef(90, 1, 0, 0);
+			if(v8 == 5) glRotatef(-90, 1, 0, 0);
+
+			this->minecraft->texturesPtr->loadAndBindTexture(panorama_images[v8]);
 			Tesselator::instance.begin(4);
 			Tesselator::instance.vertexUV(-1, -1, 1, 0, 0);
 			Tesselator::instance.vertexUV(1, -1, 1, 1, 0);

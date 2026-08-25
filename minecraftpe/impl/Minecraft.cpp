@@ -77,8 +77,6 @@ Minecraft::Minecraft()
 	this->particleEngine = 0;
 	this->soundEngine = 0;
 	this->gameMode = 0;
-	this->mojangConnector = 0;
-	this->field_188 = 0;
 	this->texturesPtr = 0;
 	this->screenChooser.minecraft = this;
 	this->font = 0;
