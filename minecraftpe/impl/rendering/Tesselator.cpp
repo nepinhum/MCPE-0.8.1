@@ -26,13 +26,8 @@ Tesselator::CurrentVertexPointers::CurrentVertexPointers() {
 }
 
 Tesselator::Tesselator(int32_t size)
-	: tmat4x4_2(1.0)
+	: field_4C(0), field_50(0), tmat4x4_2(1.0)
 	, vec(0, 0, 0) {
-	this->field_4C = 0;
-	this->field_50 = 0;
-	this->vec.x = 0.0;
-	this->vec.y = 0.0;
-	this->vec.z = 0.0;
 	this->textureU = 0.0;
 	this->textureV = 0.0;
 	this->color_int = 0;
@@ -66,6 +61,7 @@ void Tesselator::_buildQuadIndexBuffer() {
 		this->quad(v3, 0);
 	}
 }
+
 MeshBuffer::VertexFormat* Tesselator::_genVertexFormat() {
 	 //TODO check
 	uint32_t offsets = *(uint32_t*)this->meshBuffer_vf2.offsets;

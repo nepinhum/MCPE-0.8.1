@@ -36,9 +36,12 @@ int main(){
 
 bool contextWasLost;
 ENGINE* pEngine;
-AppPlatform_android appPlatform;
+AppPlatform_android23 appPlatform;
 NinecraftApp* ninecraftApp;
+std::string nativeUtf8Input;
+
 pthread_mutex_t _D6E04480; //TODO defined in the same file as engine?
+
 
 void android_main(struct android_app* state) {
 	ENGINE engine;

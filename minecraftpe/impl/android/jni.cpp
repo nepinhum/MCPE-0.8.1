@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_com_mojang_minecraftpe_MainActivity_nativeStopThis(J
 JNIEXPORT void JNICALL Java_com_mojang_minecraftpe_MainActivity_nativeSuspend(JNIEnv* env, jobject dis){
 
 }
-std::string nativeUtf8Input;
+
 JNIEXPORT void JNICALL Java_com_mojang_minecraftpe_MainActivity_nativeTypeCharacter(JNIEnv* env, jobject dis, jstring s){
     const char* utfChars = env-> GetStringUTFChars(s, 0);
 	if(utfChars){

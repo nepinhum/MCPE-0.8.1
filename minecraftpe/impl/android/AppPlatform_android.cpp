@@ -6,6 +6,7 @@
 #include <string>
 #include <stb_image.h>
 #include <string.h>
+#include <stdlib.h>
 
 AppPlatform_android::AppPlatform_android(){
 	this->mainActivityRef = 0;
