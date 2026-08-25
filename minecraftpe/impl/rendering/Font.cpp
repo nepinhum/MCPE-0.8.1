@@ -4,7 +4,7 @@
 #include <rendering/Textures.hpp>
 #include <math.h>
 #include <rendering/Tesselator.hpp>
-#include <utf8proc.h>
+#include <utf8proc/utf8proc.h>
 #include <_AssetFile.hpp>
 #include <string.h>
 #include <cpputils.hpp>

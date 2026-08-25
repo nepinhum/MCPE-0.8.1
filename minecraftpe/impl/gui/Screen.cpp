@@ -155,12 +155,13 @@ void Screen::renderDirtBackground(int32_t a2){
 	Tesselator::instance.draw(1);
 }
 
-float dword_D6E05C20 = 0; //TODO check what value it has
+static float dword_D6E05C20 = 0;
 
 void Screen::renderMenuBackground(float a2){
-	dword_D6E05C20 += this->minecraft->field_D34*30;
-	for(int32_t i = 0; i < 6; ++i){
-		this->minecraft->texturesPtr->loadTexture(panorama_images[i], 1, 1);
+	float v4 = this->minecraft->field_D34;
+	dword_D6E05C20 += v4*30;
+	for(char_t* img : panorama_images){
+		this->minecraft->texturesPtr->loadTexture(img, 1, 1);
 	}
 	{
 		DisableState be2(0xBE2);
@@ -168,7 +169,6 @@ void Screen::renderMenuBackground(float a2){
 		DisableState b71(0xB71);
 		glMatrixMode(0x1701);
 		glPushMatrix();
-		int32_t v8 = 0;
 		glLoadIdentity();
 		gluPerspective(120.0, 1.0, 0.05, 10.0);
 		glMatrixMode(0x1700u);
@@ -178,7 +178,7 @@ void Screen::renderMenuBackground(float a2){
 		glRotatef(180.0, 1.0, 0.0, 0.0);
 		glRotatef(Mth::sin((float)(a2+dword_D6E05C20) / 400) + 20, 1, 0, 0);
 		glRotatef(-(float)((float)(a2+dword_D6E05C20) * 0.1), 0.0, 1.0, 0.0);
-		do{
+		for(int v8 = 0; v8 != 6; ++v8){
 			float v9, v10, v11;
 			glPushMatrix();
 			switch(v8){
@@ -213,7 +213,7 @@ void Screen::renderMenuBackground(float a2){
 
 			glRotatef(v9, v10, v11, 0.0);
 			DONT_ROTATE:
-			char_t* texture = panorama_images[v8++];
+			char_t* texture = panorama_images[v8];
 			this->minecraft->texturesPtr->loadAndBindTexture(texture);
 			Tesselator::instance.begin(4);
 			Tesselator::instance.vertexUV(-1, -1, 1, 0, 0);
@@ -222,16 +222,14 @@ void Screen::renderMenuBackground(float a2){
 			Tesselator::instance.vertexUV(-1, 1, 1, 0, 1);
 			Tesselator::instance.draw(1);
 			glPopMatrix();
-		}while(v8 != 6);
+		}
 		glMatrixMode(0x1701u);
 		glPopMatrix();
 		glMatrixMode(0x1700u);
 		glPopMatrix();
 	} //disablestate constructors are called here
 
-	Color4 v21(1, 1, 1, 0.35);
-	Color4 v22(0, 0, 0, 0.35);
-	this->fillGradient(0, 0, this->width, this->height, v21.toARGB(), v22.toARGB());
+	this->fillGradient(0, 0, this->width, this->height, Color4(1, 1, 1, 0.35).toARGB(), Color4(0, 0, 0, 0.35).toARGB());
 }
 
 bool_t Screen::renderGameBehind(){

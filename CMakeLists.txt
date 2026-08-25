@@ -24,9 +24,6 @@ include_directories(jsoncpp/jsoncpp/include)
 add_subdirectory(jsoncpp/jsoncpp)
 include_directories(jsoncpp/jsoncpp/src/lib_json/)
 
-include_directories(utf8proc)
-
 add_subdirectory(RakNet)
-add_subdirectory(utf8proc)
 add_subdirectory(OpenAES)
 add_subdirectory(minecraftpe)

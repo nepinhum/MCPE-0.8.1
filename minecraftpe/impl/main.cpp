@@ -8,7 +8,7 @@
 #include <AppPlatform.hpp>
 #include <App.hpp>
 #include <AppPlatform_sdl.hpp>
-#include <utf8proc.h>
+#include <utf8proc/utf8proc.h>
 #include <util/Util.hpp>
 #include <unigl.hpp>
 

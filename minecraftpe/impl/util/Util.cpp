@@ -3,7 +3,7 @@
 #include <util/Util.hpp>
 #include <ctype.h>
 #include <algorithm>
-#include <utf8proc.h>
+#include <utf8proc/utf8proc.h>
 #include <string.h>
 
 std::string Util::EMPTY_STRING = "";

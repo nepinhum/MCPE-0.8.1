@@ -15,11 +15,6 @@ void IRakNetInstance::pingForHosts(int32_t) {
 }
 void IRakNetInstance::stopPingForHosts() {
 }
-std::vector<PingedCompatibleServer>* IRakNetInstance::getServerList() {
-	static std::vector<PingedCompatibleServer>* l; //TODO this thing has guard lock stuff, maybe this is some kind of std::ptr~
-
-	return l;
-}
 void IRakNetInstance::clearServerList() {
 }
 void IRakNetInstance::disconnect() {

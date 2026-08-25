@@ -14,7 +14,10 @@ struct IRakNetInstance
 	virtual void setIsLoggedIn(bool_t);
 	virtual void pingForHosts(int32_t);
 	virtual void stopPingForHosts();
-	virtual std::vector<PingedCompatibleServer>* getServerList();
+	virtual std::vector<PingedCompatibleServer>* getServerList() {
+		static std::vector<PingedCompatibleServer> l;
+		return &l;
+	}
 	virtual void clearServerList();
 	virtual void disconnect();
 	virtual void announceServer(const std::string&);

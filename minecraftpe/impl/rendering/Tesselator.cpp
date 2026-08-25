@@ -26,7 +26,7 @@ Tesselator::CurrentVertexPointers::CurrentVertexPointers() {
 }
 
 Tesselator::Tesselator(int32_t size)
-	: field_4C(0), field_50(0), tmat4x4_2(1.0)
+	: field_4C(0), field_50(0), tmat4x4_2(1.0f)
 	, vec(0, 0, 0) {
 	this->textureU = 0.0;
 	this->textureV = 0.0;
@@ -48,7 +48,7 @@ Tesselator::Tesselator(int32_t size)
 	this->field_E8 = 0;
 	this->drawMode = 0;
 
-	this->tmat4x4_2 = glm::rotate<float>(glm::mat4x4(1.0), 210.0, glm::vec3(1, 0, 0));
+	this->tmat4x4_2 = glm::rotate<float>(glm::mat4x4(1.0f), 210.0, glm::vec3(1, 0, 0));
 	this->tmat4x4_2 = glm::rotate<float>(this->tmat4x4_2, 45.0, glm::vec3(0, 1, 0));
 }
 

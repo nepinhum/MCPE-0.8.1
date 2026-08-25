@@ -4,6 +4,12 @@
 #include <math.h>
 
 struct Mth{
+	static float _sinScale;
+	static float RADDEG;
+	static float DEGRAD;
+	static float TAU;
+	static float PI;
+
 	static float _sin[65536];
 
 	static float cos(float x){
