@@ -476,8 +476,6 @@ BaseRailTile::BaseRailTile(int32_t a2, bool_t a3)
 	this->textureUV = this->getTextureUVCoordinateSet("rail_normal", 0);
 }
 
-BaseRailTile::~BaseRailTile() {
-}
 bool_t BaseRailTile::isCubeShaped() {
 	return 0;
 }
@@ -564,9 +562,6 @@ HitResult BaseRailTile::clip(Level* a3, int32_t a4, int32_t a5, int32_t a6, cons
 }
 int32_t BaseRailTile::getRenderLayer() {
 	return 1;
-}
-float BaseRailTile::getThickness() {
-	return 0.07;
 }
 void BaseRailTile::updateState(Level*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t) {
 }

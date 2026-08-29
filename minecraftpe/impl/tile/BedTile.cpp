@@ -20,9 +20,6 @@ BedTile::BedTile(int32_t id)
 	this->field_E0 = *v35.getUV(5);
 }
 
-void BedTile::_setShape(void) {
-	this->setShape(0, 0, 0, 1, 0.5625, 1);
-}
 bool_t BedTile::findStandUpPosition(Level* a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5, struct Pos& a6) {
 	int32_t v8; // r7
 	int32_t v9; // r9
@@ -98,8 +95,6 @@ bool_t BedTile::isOccupied(int32_t a1) {
 	return ((uint32_t)a1 >> 2) & 1;
 }
 
-BedTile::~BedTile() {
-}
 bool_t BedTile::isCubeShaped() {
 	return 0;
 }

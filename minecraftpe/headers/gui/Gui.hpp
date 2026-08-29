@@ -6,14 +6,13 @@
 #include <util/area/RectangleArea.hpp>
 #include <AppPlatform.hpp>
 #include <util/GuiMessage.hpp>
+#include <IConfigListener.hpp>
 
-struct Gui : GuiComponent, AppPlatform::Listener{
+struct Gui : GuiComponent, IConfigListener, AppPlatform::Listener{
 	static float InvGuiScale; //0.333333
 	static float GuiScale;
 	static float DropTicks; //40.0
 
-	//int32_t field_8; vt
-	//int32_t field_C; vt
 	float field_10;
 	std::string field_14;
 	int32_t field_18;

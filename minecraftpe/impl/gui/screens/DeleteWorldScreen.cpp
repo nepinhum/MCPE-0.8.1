@@ -11,7 +11,7 @@ DeleteWorldScreen::~DeleteWorldScreen() {
 }
 void DeleteWorldScreen::postResult(bool_t a2) {
 	if(a2) {
-		this->minecraft->getLevelSource()->deleteLevel(this->levelSummary.field_0);
+		this->minecraft->getLevelSource()->deleteLevel(this->levelSummary.worldName);
 	}
 	this->minecraft->screenChooser.setScreen(SELECT_WORLD_SCREEN);
 }

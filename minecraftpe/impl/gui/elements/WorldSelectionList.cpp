@@ -22,7 +22,7 @@ void WorldSelectionList::commit() {
 		std::vector<std::string> v12;
 		v12.push_back(v3->field_4);
 		v12.emplace_back(this->minecraft->platform()->getDateString(v3->field_8));
-		v12.push_back(v3->field_0);
+		v12.push_back(v3->worldName);
 		v12.emplace_back(v3->gamemode == 1 ? "Creative" : (v3->gamemode == 0 ? "Survival" : "Undefined"));
 		this->field_80.emplace_back(v12);
 		this->field_6C = 0;

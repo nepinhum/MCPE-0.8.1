@@ -14,18 +14,23 @@ struct Biome{
 		int32_t mobtype;
 		int32_t min, max;
 
-		MobSpawnerData(int32_t, int32_t, int32_t, int32_t);
+		MobSpawnerData(int32_t rarity, int32_t mobtype, int32_t min, int32_t max) {
+			this->rarity = rarity;
+			this->mobtype = mobtype;
+			this->min = min;
+			this->max = max;
+		}
 	};
 
 	std::vector<Biome::MobSpawnerData> monsterVec;
 	std::vector<Biome::MobSpawnerData> creatureVec;
 	std::vector<Biome::MobSpawnerData> waterCreatureVec;
-	char_t* biomeName = 0; //TODO might be not char*
-	int32_t color = 0;
+	std::string biomeName;
+	int32_t color = 0; //this stuff is necessary for memset before the constructor - (maybe there is a better way?)
 	uint8_t topBlock = 0;
 	uint8_t fillerBlock = 0;
-UNK	int8_t field_32 = 0;
-UNK	int8_t field_33 = 0;
+	//align
+
 	int32_t leafColor = 0;
 	float temperature = 0;
 	float downfall = 0;
@@ -46,11 +51,9 @@ UNK	int8_t field_33 = 0;
 	static int32_t defaultTotalEnemyWeight;
 	static int32_t defaultTotalFriendlyWeight;
 	static Biome* map[64][64];
-	//TODO statics
-
 
 	virtual ~Biome(void) {
-		if(this->biomeName) delete this->biomeName;
+
 	}
 	virtual Feature* getTreeFeature(Random*);
 	virtual Feature* getGrassFeature(Random*);

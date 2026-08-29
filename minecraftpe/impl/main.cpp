@@ -5,7 +5,6 @@
 #include <util/Random.hpp>
 #include <stdio.h>
 #include <math/Mth.hpp>
-#include <AppPlatform.hpp>
 #include <App.hpp>
 #include <AppPlatform_sdl.hpp>
 #include <utf8proc/utf8proc.h>
@@ -33,9 +32,12 @@ int main(){
 #include <cpputils.hpp>
 #include <unigl.hpp>
 #include <string.h>
+#include <RakNetTypes.h>
 
 bool contextWasLost;
 ENGINE* pEngine;
+//TODO there is some other one before appPlatform which belongs to std?
+static RakNet::SystemAddress _some_unknown_and_possibly_unused_field;
 AppPlatform_android23 appPlatform;
 NinecraftApp* ninecraftApp;
 std::string nativeUtf8Input;

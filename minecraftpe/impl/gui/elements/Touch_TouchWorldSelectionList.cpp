@@ -33,7 +33,7 @@ void Touch::TouchWorldSelectionList::commit(void) {
 		std::vector<std::string> v12;
 		v12.push_back(this->items[i].field_4);
 		v12.push_back(this->minecraft->platform()->getDateString(this->items[i].field_8));
-		v12.push_back(this->items[i].field_0);
+		v12.push_back(this->items[i].worldName);
 		char* v8;
 		int gamemode = this->items[i].gamemode;
 		if(gamemode == 0) v8 = "Survival";

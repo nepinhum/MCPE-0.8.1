@@ -11,7 +11,7 @@ Touch::DeleteWorldScreen::~DeleteWorldScreen() {
 }
 void Touch::DeleteWorldScreen::postResult(bool_t a2) {
 	if(a2) {
-		this->minecraft->getLevelSource()->deleteLevel(this->levelSummary.field_0);
+		this->minecraft->getLevelSource()->deleteLevel(this->levelSummary.worldName);
 	}
 	this->minecraft->setScreen(new PlayScreen(1));
 }

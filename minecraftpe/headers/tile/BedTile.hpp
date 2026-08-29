@@ -8,14 +8,16 @@ struct BedTile : DirectionalTile{
 	static int32_t HEAD_DIRECTION_OFFSETS[];
 
 	BedTile(int32_t);
-	void _setShape(void);
+	void _setShape(void) {
+		this->setShape(0, 0, 0, 1, 0.5625, 1);
+	}
 	static bool_t findStandUpPosition(Level*, int32_t, int32_t, int32_t, int32_t, struct Pos&);
 	static void setOccupied(Level*, int32_t, int32_t, int32_t, bool_t);
 
 	static bool_t isHeadPiece(int32_t);
 	static bool_t isOccupied(int32_t);
 
-	virtual ~BedTile();
+	virtual ~BedTile(){}
 	virtual bool_t isCubeShaped();
 	virtual int32_t getRenderShape();
 	virtual void updateShape(LevelSource*, int32_t, int32_t, int32_t);

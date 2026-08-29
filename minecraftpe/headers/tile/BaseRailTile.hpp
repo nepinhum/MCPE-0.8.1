@@ -31,7 +31,7 @@ struct BaseRailTile : Tile{
 	static bool_t isRail(struct Level*, int32_t, int32_t, int32_t);
 
 	BaseRailTile(int32_t, bool_t);
-	virtual ~BaseRailTile();
+	virtual ~BaseRailTile(){}
 	virtual bool_t isCubeShaped();
 	virtual int32_t getRenderShape();
 	virtual void updateShape(LevelSource*, int32_t, int32_t, int32_t);
@@ -44,7 +44,9 @@ struct BaseRailTile : Tile{
 	virtual int32_t getResourceCount(Random*);
 	virtual HitResult clip(Level*, int32_t, int32_t, int32_t, const Vec3&, const Vec3&);
 	virtual int32_t getRenderLayer();
-	virtual float getThickness();
+	virtual float getThickness() {
+		return 0.07;
+	}
 	virtual void updateState(Level*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t);
 
 	bool_t blocksLight();

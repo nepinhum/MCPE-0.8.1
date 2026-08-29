@@ -25,7 +25,7 @@ void ExternalFileLevelStorageSource::addLevelSummaryIfExists(std::vector<LevelSu
 	LevelData ld;
 	if(ExternalFileLevelStorage::readLevelData(a1, ld)) {
 		LevelSummary ls;
-		ls.field_0 = a3;
+		ls.worldName = a3;
 		ls.field_10 = ld.getSeed();
 		ls.field_4 = ld.levelName;
 		ls.field_8 = ld.getLastPlayed();

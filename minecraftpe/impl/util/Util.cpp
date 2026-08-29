@@ -96,36 +96,32 @@ std::string Util::utf8substring(const std::string& a2, int32_t start, int32_t en
 	return a1;
 }
 std::string Util::simpleFormat(const std::string& a2, std::vector<std::string> a3) {
-	//probably not like in original
-	std::string ret = "";
-	int32_t curFmt = 0;
-	bool_t fmt = 0;
-	bool_t v8 = 0;
-	for(int32_t i = 0; i < a2.length(); ++i) {
+	std::string ret;
+	bool v8 = 0, fmt = 0;
+	int curFmt = 0;
+	for(char c: a2) {
 		if(fmt) {
-			if(a2[i] != '%' && curFmt < a3.size()) {
+			if(c != '%' && curFmt < a3.size()) {
 				ret += a3[curFmt];
 				++curFmt;
 			}
-			ret += a2[i];
+			ret += c;
 			fmt = 0;
 		} else if(v8) {
-			ret += a2[i];
+			ret += c;
 			v8 = 0;
-		} else if(a2[i] == '\x7f') {
-			ret += "\x7f";
+		} else if(c == '\x7f') {
+			ret += '\x7f';
 			v8 = 1;
-		} else if(a2[i] == '%') {
+		} else if(c == '%') {
 			fmt = 1;
 		} else {
-			ret += a2[i];
+			ret += c;
 		}
 	}
-
-	if(fmt) {
-		if(curFmt < (a3.size())) {
-			ret += a3[curFmt];
-		}
+	if(fmt && curFmt < a3.size()) {
+		ret += a3[curFmt];
+		++curFmt;
 	}
 
 	return ret;
@@ -136,14 +132,15 @@ std::string Util::toLower(const std::string& s){
 	std::transform(cp.begin(), cp.end(), cp.begin(), tolower);
 	return cp;
 }
-void Util::stringSplit(const std::string& a1, int32_t a2, const float* a3, std::function<void(const std::string&, float)> a4) {
-	int32_t v4 = 0;
+void Util::stringSplit(const std::string& a1, int32_t a2, const float* a3, std::function<void(const std::string&, float)> onSplit) {
 	float v5 = 0;
 	int32_t v10 = -1;
 	int32_t v11 = 0;
-	while(v4 < a1.size()) {
+	int v4 = 0;
+	for(v4 = 0; v4 < a1.size(); ++v4) {
 		int32_t v12 = (uint8_t)a1[v4];
 		v5 += a3[v12];
+
 		if(v12 == ' ') {
 			v10 = v4;
 		} else if(v12 == '\t') {
@@ -152,34 +149,28 @@ void Util::stringSplit(const std::string& a1, int32_t a2, const float* a3, std::
 
 		if((int)v5 > a2) {
 			if(v12 != '\n') {
-				if(v10 < 0) {
-					--v4;
-				}
-				if(v10 >= 0) {
-					v4 = v10;
-				}
+				if(v10 >= 0) v4 = v10;
+				else --v4;
+
 				std::string v15 = a1.substr(v11, v4 - v11 + 1);
-				a4(v15, v5);
+				onSplit(v15, v5);
+
 				v11 = v4 + 1;
 				v10 = -1;
 				v5 = 0;
-				++v4;
 				continue;
 			}
-		}else if ( v12 != '\n' )
-		{
-			++v4;
+		}else if ( v12 != '\n' ){
 			continue;
 		}
 		std::string v15 = a1.substr(v11, v4 - v11);
-		a4(v15, 0);
+		onSplit(v15, 0);
 		v11 = v4 + 1;
 		v10 = -1;
 		v5 = 0;
-		++v4;
 	}
 	std::string v15 = a1.substr(v11, v4 - v11);
-	a4(v15, v5);
+	onSplit(v15, v5);
 }
 
 std::string Util::toString(int32_t i){

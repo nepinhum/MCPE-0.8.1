@@ -3,7 +3,6 @@
 #include <entity/MobCategory.hpp>
 #include <vector>
 #include <string>
-#include <string.h>
 #include <level/gen/feature/TreeFeature.hpp>
 #include <util/Random.hpp>
 #include <tile/Tile.hpp>
@@ -31,14 +30,6 @@ int32_t Biome::defaultTotalEnemyWeight = 0;
 int32_t Biome::defaultTotalFriendlyWeight = 0;
 Biome* Biome::map[64][64];
 
-
-Biome::MobSpawnerData::MobSpawnerData(int32_t rarity, int32_t mobtype, int32_t min, int32_t max){
-	this->rarity = rarity;
-	this->mobtype = mobtype;
-	this->min = min;
-	this->max = max;
-}
-
 Feature* Biome::getTreeFeature(Random* rand){
 	rand->genrand_int32(); //must be here
 	return new TreeFeature(0, 0);
@@ -53,14 +44,12 @@ float Biome::adjustDepth(float f){
 	return f;
 }
 Color4 Biome::getSkyColor(float a3){
-	float v3;
+	float v3 = a3 / 3.0f;
 
-	v3 = a3 / 3.0f;
+	if(v3 < -1.0f) v3 = -1.0f;
+	else if(v3 > 1.0f) v3 = 1.0f;
 
-	if(v3 < -1.0) v3 = -1.0;
-	else if(v3 > 1.0) v3 = 1.0;
-
-	return Color4::fromHSB(0.62222 - (float)(v3 * 0.05), (float)(v3 * 0.1) + 0.5, 1.0);
+	return Color4::fromHSB(0.62222f - (float)(v3 * 0.05f), (float)(v3 * 0.1f) + 0.5f, 1.0f);
 }
 std::vector<Biome::MobSpawnerData>* Biome::getMobs(const MobCategory& cat){
 	if(&cat == &MobCategory::monster) return &this->monsterVec;
@@ -74,37 +63,32 @@ float Biome::getCreatureProbability(void){
 }
 
 Biome::Biome(void){
-	this->biomeName = 0;
 	this->topBlock = Tile::grass->blockID;
 	this->fillerBlock = Tile::dirt->blockID;
 
-	this->leafColor = 5169201;
+	this->leafColor = 0x4EE031;
 	this->temperature = 0.5f;
 	this->downfall = 0.5f;
-	this->creatureVec = {};
-	this->monsterVec = {};
 
-	this->creatureVec.emplace_back(Biome::MobSpawnerData(12, 13, 2, 3));
-	this->creatureVec.emplace_back(Biome::MobSpawnerData(10, 12, 1, 3));
-	this->creatureVec.emplace_back(Biome::MobSpawnerData(10, 10, 2, 4));
-	this->creatureVec.emplace_back(Biome::MobSpawnerData(8, 11, 2, 3));
+	this->creatureVec.emplace(this->creatureVec.end(), Biome::MobSpawnerData(12, 13, 2, 3));
+	this->creatureVec.emplace(this->creatureVec.end(), Biome::MobSpawnerData(10, 12, 1, 3));
+	this->creatureVec.emplace(this->creatureVec.end(), Biome::MobSpawnerData(10, 10, 2, 4));
+	this->creatureVec.emplace(this->creatureVec.end(), Biome::MobSpawnerData(8, 11, 2, 3));
 
-	this->monsterVec.emplace_back(Biome::MobSpawnerData(8, 35, 2, 3));
-	this->monsterVec.emplace_back(Biome::MobSpawnerData(12, 32, 2, 4));
-	this->monsterVec.emplace_back(Biome::MobSpawnerData(6, 34, 1, 3));
-	this->monsterVec.emplace_back(Biome::MobSpawnerData(4, 33, 1, 1));
+	this->monsterVec.emplace(this->monsterVec.end(), Biome::MobSpawnerData(8, 35, 2, 3));
+	this->monsterVec.emplace(this->monsterVec.end(), Biome::MobSpawnerData(12, 32, 2, 4));
+	this->monsterVec.emplace(this->monsterVec.end(), Biome::MobSpawnerData(6, 34, 1, 3));
+	this->monsterVec.emplace(this->monsterVec.end(), Biome::MobSpawnerData(4, 33, 1, 1));
 
 	Biome::defaultTotalEnemyWeight = 0;
+	for(auto&& v: this->monsterVec) {
+		Biome::defaultTotalEnemyWeight += v.rarity;
+	}
+
 	Biome::defaultTotalFriendlyWeight = 0;
-
-	for(int i = 0; i < this->monsterVec.size(); ++i){
-		Biome::defaultTotalEnemyWeight += this->monsterVec[i].rarity;
+	for(auto&& v: this->creatureVec) {
+		Biome::defaultTotalFriendlyWeight += v.rarity;
 	}
-
-	for(int i = 0; i < this->creatureVec.size(); ++i){
-		Biome::defaultTotalFriendlyWeight += this->creatureVec[i].rarity;
-	}
-
 }
 Biome* Biome::clearMobs(bool_t creature, bool_t water, bool_t monsters){
 	if(creature) this->creatureVec.clear();
@@ -121,8 +105,7 @@ Biome* Biome::setLeafColor(int32_t color){
 	return this;
 }
 Biome* Biome::setName(const std::string& str){
-	this->biomeName = new char[str.length()+1];
-	strcpy(this->biomeName, str.c_str());
+	this->biomeName = str;
 	return this;
 }
 Biome* Biome::setSnowCovered(void){
@@ -138,14 +121,11 @@ void Biome::recalc(void) {
 	for(int32_t i = 0; i != 64; ++i) {
 		for(int32_t j = 0; j != 64; ++j) {
 			Biome* b = Biome::_getBiome((float)i / 63.0, (float)j / 63.0);
-			Biome::map[j][i] = b; //TODO check
+			Biome::map[j][i] = b;
 		}
 	}
-	Biome::desert->topBlock = Tile::sand->blockID;
-	Biome::desert->fillerBlock = Tile::sand->blockID;
-	Biome::iceDesert->topBlock = Tile::sand->blockID;
-	Biome::iceDesert->fillerBlock = Tile::sand->blockID;
-
+	Biome::desert->topBlock = Biome::desert->fillerBlock = Tile::sand->blockID;
+	Biome::iceDesert->topBlock = Biome::iceDesert->fillerBlock = Tile::sand->blockID;
 }
 void Biome::initBiomes(void) {
 	Biome::rainForest = (new RainforestBiome())->setColor(0x537B09)->setName("Rainforest")->setLeafColor(0x537B09)->setTemperatureAndDownfall(1.2, 0.9); //TODO fill zeros before Biome::Biome()
@@ -162,49 +142,37 @@ void Biome::initBiomes(void) {
 	Biome::recalc();
 }
 void Biome::teardownBiomes(void) {
-	if(Biome::rainForest) {
-		delete Biome::rainForest;
-	}
+	if(Biome::rainForest) delete Biome::rainForest;
 	Biome::rainForest = 0;
-	if(Biome::swampland) {
-		delete Biome::swampland;
-	}
+
+	if(Biome::swampland) delete Biome::swampland;
 	Biome::swampland = 0;
-	if(Biome::seasonalForest) {
-		delete Biome::seasonalForest;
-	}
+
+	if(Biome::seasonalForest) delete Biome::seasonalForest;
 	Biome::seasonalForest = 0;
-	if(Biome::forest) {
-		delete Biome::forest;
-	}
+
+	if(Biome::forest) delete Biome::forest;
 	Biome::forest = 0;
-	if(Biome::savanna) {
-		delete Biome::savanna;
-	}
+
+	if(Biome::savanna) delete Biome::savanna;
 	Biome::savanna = 0;
-	if(Biome::shrubland) {
-		delete Biome::shrubland;
-	}
+
+	if(Biome::shrubland) delete Biome::shrubland;
 	Biome::shrubland = 0;
-	if(Biome::taiga) {
-		delete Biome::taiga;
-	}
+
+	if(Biome::taiga) delete Biome::taiga;
 	Biome::taiga = 0;
-	if(Biome::desert) {
-		delete Biome::desert;
-	}
+
+	if(Biome::desert) delete Biome::desert;
 	Biome::desert = 0;
-	if(Biome::plains) {
-		delete Biome::plains;
-	}
+
+	if(Biome::plains) delete Biome::plains;
 	Biome::plains = 0;
-	if(Biome::iceDesert) {
-		delete Biome::iceDesert;
-	}
+
+	if(Biome::iceDesert) delete Biome::iceDesert;
 	Biome::iceDesert = 0;
-	if(Biome::tundra) {
-		delete Biome::tundra;
-	}
+
+	if(Biome::tundra) delete Biome::tundra;
 	Biome::tundra = 0;
 }
 Biome* Biome::getBiome(float a1, float a2){
@@ -212,48 +180,22 @@ Biome* Biome::getBiome(float a1, float a2){
 }
 
 Biome* Biome::_getBiome(float temp, float rain) {
-	Biome** v2; // r2
-	float newRain; // s14
+	if(temp < 0.1f) return Biome::tundra;
 
-	if(temp < 0.1) {
-		goto LABEL_2;
+	float newRain = rain * temp;
+	if(newRain < 0.2f) {
+		if(temp < 0.5f) return Biome::tundra;
+		if(temp < 0.95f) return Biome::savanna;
+		return Biome::desert;
 	}
-	newRain = rain * temp;
-	if((float)(rain * temp) >= 0.2) {
-		if(newRain <= 0.5 || temp >= 0.7) {
-			if(temp >= 0.5) {
-				if(temp >= 0.97) {
-					if(newRain >= 0.45) {
-						if(newRain >= 0.9) {
-							v2 = &Biome::rainForest;
-						} else {
-							v2 = &Biome::seasonalForest;
-						}
-					} else {
-						v2 = &Biome::plains;
-					}
-				} else if(newRain >= 0.35) {
-					v2 = &Biome::forest;
-				} else {
-					v2 = &Biome::shrubland;
-				}
-			} else {
-				v2 = &Biome::taiga;
-			}
-		} else {
-			v2 = &Biome::swampland;
-		}
-	} else {
-		if(temp < 0.5) {
-LABEL_2:
-			v2 = &Biome::tundra;
-			return (*v2);
-		}
-		if(temp >= 0.95) {
-			v2 = &Biome::desert;
-		} else {
-			v2 = &Biome::savanna;
-		}
+	if(newRain > 0.5f && temp < 0.7f) return Biome::swampland;
+	if(temp < 0.5f) return Biome::taiga;
+	if(temp < 0.97f) {
+		if(newRain < 0.35f) return Biome::shrubland;
+		return Biome::forest;
 	}
-	return (*v2);
+	if(newRain < 0.45f) return Biome::plains;
+	if(newRain < 0.9f) return Biome::seasonalForest;
+
+	return Biome::rainForest;
 }

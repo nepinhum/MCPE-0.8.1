@@ -336,6 +336,7 @@ int32_t Font::width(const std::string& s){
 		if(v11 <= 0) break;
 		data += v11;
 		len -= v11;
+
 		int32_t v9 = this->charWidth(v13, hasUnicode);
 		if(v13 == 10){
 			if(v6 < v10) v6 = v10;

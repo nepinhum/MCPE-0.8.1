@@ -20,9 +20,6 @@ void BeetrootTile::spawnItem(Level* level, int32_t x, int32_t y, int32_t z, cons
 	v12->delayBeforePickup = 10;
 	level->addEntity(v12);
 }
-
-BeetrootTile::~BeetrootTile() {
-}
 TextureUVCoordinateSet* BeetrootTile::getTexture(int32_t a2, int32_t a3) {
 	int32_t v4; // r1
 
